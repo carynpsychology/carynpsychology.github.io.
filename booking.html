@@ -312,15 +312,11 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </div>
         <div class="bform-group">
           <label for="b-phone">Phone Number <span class="req">*</span></label>
-          <input id="b-phone" type="tel" placeholder="+65 9000 0000"/>
+          <input id="b-phone" type="tel" placeholder="+6 010 000 0000" inputmode="numeric" pattern="\d*" oninput="this.value=this.value.replace(/\D/g,'')"/>
         </div>
         <div class="bform-group">
           <label for="b-age">Age <span class="req">*</span></label>
           <input id="b-age" type="number" placeholder="e.g. 28" min="1" max="120"/>
-        </div>
-        <div class="bform-group bform-full">
-          <label for="b-type-display">Type of Appointment</label>
-          <input id="b-type-display" type="text" readonly style="opacity:.6;cursor:default;"/>
         </div>
         <div class="bform-group bform-full">
           <label for="b-notes">Is there anything you'd like your therapist to know?</label>
@@ -448,8 +444,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  const CALENDLY_INPERSON = 'https://calendly.com/jstan5683/therapy-session';
-  const CALENDLY_ONLINE   = 'https://calendly.com/jstan5683/therapy-session-general-clone';
+  const CALENDLY_INPERSON = 'https://calendly.com/therapyandtraining-carynpsychology/30min';
+  const CALENDLY_ONLINE   = 'https://calendly.com/therapyandtraining-carynpsychology/30min';
   let selectedType = null;
   let selectedMode = null;
 
@@ -475,7 +471,13 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       const phone = document.getElementById('b-phone').value.trim();
       const age   = document.getElementById('b-age').value.trim();
       const msg   = document.getElementById('b-validation-msg');
-      if (!name || !email || !phone || !age) { msg.classList.remove('hidden'); return; }
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const phoneValid = /^\d+$/.test(phone);
+      const ageValid   = /^\d+$/.test(age);
+      if (!name || !email || !phone || !age) { msg.textContent = 'Please fill in all required fields (Name, Email, Phone, Age).'; msg.classList.remove('hidden'); return; }
+      if (!emailValid) { msg.textContent = 'Please enter a valid email address.'; msg.classList.remove('hidden'); return; }
+      if (!phoneValid) { msg.textContent = 'Phone number must contain only digits.'; msg.classList.remove('hidden'); return; }
+      if (!ageValid)   { msg.textContent = 'Age must contain only digits.'; msg.classList.remove('hidden'); return; }
       msg.classList.add('hidden');
       document.getElementById('sum-type-4').textContent = selectedType;
       document.getElementById('sum-mode-4').textContent = selectedMode;
@@ -503,7 +505,6 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     if (n === 3) {
       document.getElementById('sum-type').textContent = selectedType;
       document.getElementById('sum-mode').textContent = selectedMode;
-      document.getElementById('b-type-display').value = selectedType;
     }
     document.getElementById('booking').scrollIntoView({ behavior:'smooth', block:'start' });
   };
@@ -521,7 +522,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       + '&a1='    + encodeURIComponent(phone)
       + '&a2='    + encodeURIComponent(age)
       + '&a3='    + encodeURIComponent(selectedType)
-      + '&a4='    + encodeURIComponent(notes);
+      + '&a4='    + encodeURIComponent(selectedMode)
+      + '&a5='    + encodeURIComponent(notes);
     window.open(url, '_blank', 'noopener,noreferrer');
     document.getElementById('step-4').classList.add('hidden');
     document.getElementById('step-4b').classList.remove('hidden');
@@ -530,7 +532,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 
   window.restartBooking = function() {
     selectedType = null; selectedMode = null;
-    ['b-name','b-email','b-phone','b-age','b-notes','b-type-display'].forEach(id => {
+    ['b-name','b-email','b-phone','b-age','b-notes'].forEach(id => {
       const el = document.getElementById(id); if (el) el.value = '';
     });
     document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
