@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Mental Health Check-in — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --primary-20: rgba(159,207,206,.2);
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --bg3: rgba(159,207,206,.2);
+  --text: #633B2E;
+  --neutral-dark: #633B2E;
+  --white: #FFFFFF;
+  --cream: #FCF9EF;
+  --cream2: #F5F1E6;
+  --sage: #9FCFCE;
+  --sage-light: #A3C0A4;
+  --sage-pale: #ddecea;
+  --sage-dark: #633B2E;
+  --forest: #464646;
+  --charcoal: #633B2E;
+  --warm-dark: #333;
+  --mid: #633B2E;
+  --light: #d4c8c2;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:var(--nav-h);
+  padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--cream);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── SECTION SHARED ── */
+section{padding:100px 0;}
+.section-eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--text);opacity:.7;margin-bottom:1rem;}
+h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;}
+h2.section-title em{font-style:italic;color:var(--primary);}
+.section-sub{color:var(--mid);max-width:520px;line-height:1.85;font-size:0.99rem;margin-bottom:2rem;}
+.btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-primary:hover{background:#7db8b7;transform:translateY(-2px);}
+.btn-ghost{border:1.5px solid var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:all .25s;display:inline-block;}
+.btn-ghost:hover{background:rgba(159,207,206,.15);}
+
+/* ── SECTION TRANSITION WAVES ── */
+.section-wave-bottom{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:2;}
+.section-wave-bottom svg{display:block;width:100%;}
+
+/* ── HERO ── */
+#fmh-hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 70px) 0 140px;
+  background:var(--bg1);
+}
+.fmh-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.fmh-hero-text h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,5.5vw,5rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.05;
+  margin-bottom:1.4rem;
+}
+.fmh-hero-text h1 em{font-style:italic;color:var(--primary);}
+.fmh-hero-text p{font-size:1rem;color:var(--mid);line-height:1.8;max-width:480px;margin-bottom:1.4rem;font-weight:500;}
+.fmh-hero-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;}
+.fmh-hero-bullets li{display:flex;align-items:center;gap:.55rem;font-size:.95rem;color:var(--text);font-weight:500;}
+.fmh-hero-img-wrap{display:flex;align-items:center;justify-content:center;}
+.fmh-hero-squircle{
+  width:88%;
+  aspect-ratio:.95;
+  border-radius:48% 52% 45% 55%/55% 45% 55% 45%;
+  overflow:hidden;
+  background:#d8d0c4;
+  border:6px solid rgba(255,255,255,.6);
+  box-shadow:0 8px 48px rgba(0,0,0,.12);
+}
+.fmh-hero-squircle-inner{
+  width:100%;height:100%;
+  background:url('https://placehold.co/560x590') center/cover no-repeat;
+}
+
+/* ── AVAILABLE SCREENINGS ── */
+#screenings{background:#EAF0E8;padding:60px 0 100px;margin-top:-1px;}
+.screenings-header{margin-bottom:3rem;}
+.screenings-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:1rem;}
+.screenings-intro{font-size:.9rem;color:var(--text);line-height:1.75;max-width:820px;font-weight:500;opacity:.85;}
+.screening-category{margin-bottom:2.5rem;}
+.screening-cat-label{display:flex;align-items:center;gap:.6rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;font-style:italic;color:var(--text);margin-bottom:1rem;}
+.screening-card{background:#FCF9EF;border-radius:40px;padding:0 2rem;border:1px solid rgba(159,207,206,.1);box-shadow:0 4px 24px rgba(159,207,206,.18),0 1px 4px rgba(99,59,46,.06);}
+.screening-row{display:grid;grid-template-columns:220px 1fr auto;gap:2rem;align-items:center;padding:1.4rem 0;border-bottom:1px solid rgba(99,59,46,.08);}
+.screening-row:last-child{border-bottom:none;}
+.screening-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--text);margin-bottom:.35rem;line-height:1.2;}
+.screening-code{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--text);background:rgba(159,207,206,.3);border-radius:100px;padding:.2rem .75rem;display:inline-block;}
+.screening-desc{font-size:.9rem;color:var(--text);line-height:1.6;font-weight:500;opacity:.85;}
+.btn-start-test{display:inline-flex;align-items:center;gap:.4rem;background:#FCF9EF;color:var(--text);padding:.6rem 1.2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;border:1.5px solid var(--primary);white-space:nowrap;transition:background .25s,border-color .25s;}
+.btn-start-test:hover{background:#EAF0E8;border-color:#68BAB8;}
+
+/* ── WHEN TO CONSIDER ── */
+#when-consider{background:var(--bg1);padding:56px 0 64px;}
+.when-consider-grid{display:grid;grid-template-columns:0.8fr 1.6fr;gap:16px;align-items:center;}
+.when-consider-img-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:48px 32px;}
+.when-consider-blob{position:absolute;width:62%;height:62%;background:#F5F1E6;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;border-radius:63% 37% 54% 46% / 55% 62% 38% 45%;}
+.when-consider-img{position:relative;z-index:1;width:100%;max-width:460px;display:block;margin:0 auto;}
+.when-consider-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,3.8rem);font-weight:500;color:var(--text);margin-bottom:1.4rem;line-height:1.2;}
+.when-consider-text p{font-size:1.15rem;color:var(--text);line-height:1.85;margin-bottom:1.2rem;font-weight:500;}
+.when-bullets{list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:.75rem;}
+.when-bullets li{font-size:1.15rem;color:var(--text);line-height:1.6;padding-left:1.4rem;position:relative;font-weight:500;}
+.when-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);}
+
+/* ── UNDERSTANDING YOUR EXPERIENCES ── */
+#understanding{background:var(--bg2);padding:90px 0 100px;}
+.understanding-header{margin-bottom:3rem;}
+.understanding-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:1rem;}
+.understanding-header p{font-size:.95rem;color:var(--text);line-height:1.85;white-space:nowrap;font-weight:500;}
+.understanding-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch;}
+.understanding-card{border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .3s,transform .3s;cursor:default;}
+.understanding-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.understanding-card.cream{background:#FCF9EF;}
+.understanding-card.teal{background:#C4DFDB;}
+.understanding-card.green{background:#C8DDC7;}
+.understanding-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-bottom:.25rem;}
+.understanding-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--text);line-height:1.25;}
+.understanding-card p{font-size:.95rem;color:var(--text);line-height:1.7;font-weight:500;}
+.understanding-card ul{list-style:none;padding:0;margin:.25rem 0;display:flex;flex-direction:column;gap:.45rem;}
+.understanding-card ul li{font-size:.93rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;font-weight:400;}
+.understanding-card ul li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+.understanding-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--text);line-height:1.25;}
+.understanding-card p{font-size:.9rem;color:var(--text);line-height:1.75;font-weight:500;}
+.understanding-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.45rem;}
+.understanding-card ul li{font-size:.9rem;color:var(--text);line-height:1.6;padding-left:1.2rem;position:relative;font-weight:500;}
+.understanding-card ul li::before{content:'•';position:absolute;left:0;color:var(--text);}
+
+/* ── QUOTE CALLOUT ── */
+.quote-callout{background:var(--bg2);padding:70px 0;}
+.quote-callout-inner{display:flex;align-items:center;gap:3rem;width:100%;}
+.quote-callout-floral{flex-shrink:0;width:115px;}
+.quote-callout-floral img{width:100%;height:auto;display:block;}
+.quote-callout-text{flex:1;}
+.quote-callout blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
+.quote-callout p{font-size:.95rem;color:var(--text);line-height:1.7;font-weight:500;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:var(--bg2);padding:60px 0;text-align:center;}
+.cta-banner-inner{
+  background:#ECE2DA;border-radius:40px;padding:70px 8%;
+  position:relative;overflow:hidden;
+}
+.cta-banner-inner::before{
+  content:'';position:absolute;
+  width:200px;height:220px;
+  border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;
+  background:rgba(168,142,130,.55);
+  left:-65px;top:50%;transform:translateY(-50%);
+  pointer-events:none;
+}
+.cta-banner-inner::after{
+  content:'';position:absolute;
+  width:115px;height:125px;
+  border-radius:45% 55% 60% 40% / 52% 48% 55% 45%;
+  background:rgba(168,142,130,.45);
+  right:-35px;bottom:-35px;
+  pointer-events:none;
+}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
+.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary:hover{background:#68BAB8;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
+.btn-cta-secondary:hover{background:#EAF0E8;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .fmh-hero-grid,.when-consider-grid{grid-template-columns:1fr;gap:40px;}
+  .understanding-cards{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:70px 0;}
+  .container{padding:0 16px;}
+  .screening-row{grid-template-columns:1fr;gap:.4rem;}
+  .screening-tag{justify-self:start;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="therapy.html">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="fmh-hero">
+  <div class="container">
+    <div class="fmh-hero-grid">
+      <div class="fmh-hero-text">
+        <h1>Gain <em>clarity</em> on your mental health</h1>
+        <p>A short, structured screening designed to help you better understand your current experiences.</p>
+        <ul class="fmh-hero-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Evidence-based self-screening tools
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            A starting point for understanding your symptoms
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            A guide to help you decide if further support may be useful
+          </li>
+        </ul>
+      </div>
+      <div class="fmh-hero-img-wrap">
+        <div class="fmh-hero-squircle">
+          <div class="fmh-hero-squircle-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-wave-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C240,80 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="#EAF0E8"/>
+    </svg>
+  </div>
+</section>
+
+<!-- AVAILABLE SCREENINGS -->
+<section id="screenings">
+  <div class="container">
+    <div class="screenings-header">
+      <h2 class="section-title">Available screenings</h2>
+      <p class="screenings-intro">These screening tools can help you understand your experiences and prepare for your Initial Consultation. Results are for personal insight only and do not constitute a diagnosis.</p>
+    </div>
+
+    <!-- Emotional Wellbeing -->
+    <div class="screening-category">
+      <div class="screening-cat-label">🌿 Emotional Wellbeing</div>
+      <div class="screening-card">
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Anxiety</div>
+            <span class="screening-code">GAD-7</span>
+          </div>
+          <div class="screening-desc">Screen for anxiety symptoms</div>
+          <a href="https://www.hiv.uw.edu/page/mental-health-screening/gad-7" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Depression</div>
+            <span class="screening-code">PHQ-9</span>
+          </div>
+          <div class="screening-desc">Screen for low mood and depressive symptoms</div>
+          <a href="https://www.hiv.uw.edu/page/mental-health-screening/phq-9" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Stress</div>
+            <span class="screening-code">PSS-10</span>
+          </div>
+          <div class="screening-desc">Understand your current stress levels</div>
+          <a href="https://www.das.nh.gov/wellness/docs/percieved%20stress%20scale.pdf" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Functioning -->
+    <div class="screening-category">
+      <div class="screening-cat-label">🌙 Daily Functioning</div>
+      <div class="screening-card">
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Insomnia</div>
+            <span class="screening-code">ISI</span>
+          </div>
+          <div class="screening-desc">Assess sleep difficulties and impact</div>
+          <a href="https://www.ons.nhs.uk/application/files/7716/4678/6937/isi_questionnaire.pdf" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Trauma</div>
+            <span class="screening-code">PCL-5</span>
+          </div>
+          <div class="screening-desc">Screen for trauma-related symptoms</div>
+          <a href="https://www.ptsd.va.gov/professional/assessment/adult-sr/ptsd-checklist.asp" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neurodiversity -->
+    <div class="screening-category">
+      <div class="screening-cat-label">🧠 Neurodiversity</div>
+      <div class="screening-card">
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">ADHD Traits (Adults)</div>
+            <span class="screening-code">ASRS V1.1</span>
+          </div>
+          <div class="screening-desc">Screen for attention and focus difficulties</div>
+          <a href="https://www.hcp.med.harvard.edu/ncs/ftpdir/adhd/18Q_ASRS_v1.1.pdf" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Autism Traits (Adults)</div>
+            <span class="screening-code">AQ-10</span>
+          </div>
+          <div class="screening-desc">Screen for autistic traits</div>
+          <a href="https://www.autismresearchcentre.com/arc_tests" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- For Parents -->
+    <div class="screening-category">
+      <div class="screening-cat-label">👨‍👩‍👧 For Parents</div>
+      <div class="screening-card">
+        <div class="screening-row">
+          <div>
+            <div class="screening-name">Child Behaviour</div>
+            <span class="screening-code">SDQ</span>
+          </div>
+          <div class="screening-desc">Understand your child's emotional and behavioural patterns</div>
+          <a href="https://www.sdqinfo.org/" target="_blank" rel="noopener" class="btn-start-test">Start Test <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHEN TO CONSIDER PROFESSIONAL SUPPORT -->
+<section id="when-consider">
+  <div class="container">
+    <div class="when-consider-grid">
+      <div class="when-consider-img-wrap">
+        <div class="when-consider-blob"></div>
+        <img src="../images/mentalhealthtest flower.png" alt="Floral illustration" class="when-consider-img"/>
+      </div>
+      <div class="when-consider-text">
+        <h2 class="section-title">When to consider professional support?</h2>
+        <p>You may consider reaching out if:</p>
+        <ul class="when-bullets">
+          <li>Your results are consistently high</li>
+          <li>Your symptoms are affecting daily functioning</li>
+          <li>You've been feeling this way for some time</li>
+          <li>You would like clarity or guidance</li>
+        </ul>
+        <p>If you'd like support in making sense of your results and what they mean for you, you're welcome to book a session.</p>
+        <a href="booking.html" class="btn-primary">Book a Session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNDERSTANDING YOUR EXPERIENCES -->
+<section id="understanding">
+  <div class="container">
+    <div class="understanding-header">
+      <h2 class="section-title">Understanding your experiences</h2>
+      <p>If you're not ready to seek support yet, you can start by learning more about what you might be experiencing.</p>
+    </div>
+    <div class="understanding-cards">
+      <div class="understanding-card cream">
+        <div class="understanding-card-icon">😔</div>
+        <h3>Depression &amp; Low Mood</h3>
+        <p>Sometimes it's not obvious. It can feel like:</p>
+        <ul>
+          <li>Low energy or constant tiredness</li>
+          <li>Losing interest in things you used to enjoy</li>
+          <li>Feeling numb, flat, or disconnected</li>
+          <li>Being hard on yourself</li>
+        </ul>
+        <p>Not always sadness — sometimes just a quiet heaviness that doesn't go away.</p>
+      </div>
+      <div class="understanding-card teal">
+        <div class="understanding-card-icon">🔋</div>
+        <h3>Anxiety &amp; Burnout</h3>
+        <p>This often shows up in people who are still functioning — but exhausted.</p>
+        <p>You might notice:</p>
+        <ul>
+          <li>Overthinking or difficulty "switching off"</li>
+          <li>Feeling on edge, restless, or easily overwhelmed</li>
+          <li>Physical tension, poor sleep, or fatigue</li>
+          <li>Feeling drained even after resting</li>
+        </ul>
+        <p>Burnout can look like:</p>
+        <ul>
+          <li>Emotional exhaustion</li>
+          <li>Loss of motivation</li>
+          <li>Feeling detached from work or responsibilities</li>
+        </ul>
+      </div>
+      <div class="understanding-card green">
+        <div class="understanding-card-icon">🔍</div>
+        <h3>Neurodiversity in Adults (Autism/ADHD)</h3>
+        <p>Some people have always felt a little different — without knowing why.</p>
+        <p>You might relate to:</p>
+        <ul>
+          <li>Feeling out of sync with others</li>
+          <li>Masking or over-adapting socially</li>
+          <li>Sensory or emotional overwhelm</li>
+          <li>Struggles with focus, organisation, or routines</li>
+        </ul>
+        <p>Understanding this can bring clarity — and a more compassionate way of seeing yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE CALLOUT -->
+<div class="quote-callout">
+  <div class="container">
+    <div class="quote-callout-inner">
+      <div class="quote-callout-floral">
+        <img src="../images/flower.png" alt="Botanical illustration"/>
+      </div>
+      <div class="quote-callout-text">
+        <blockquote>If any of this resonates with you, it doesn't mean something is "wrong".</blockquote>
+        <p>It may simply mean there are patterns worth understanding — and support can help.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2>Schedule an initial consultation</h2>
+      <p>If you're not ready yet, you can take your time exploring and come back when you feel ready.</p>
+      <div class="cta-banner-btns">
+        <a href="booking.html" class="btn-cta-primary">
+          Book a Session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </a>
+        <a href="https://wa.me/601037720560" class="btn-cta-secondary">
+          Talk to someone
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>

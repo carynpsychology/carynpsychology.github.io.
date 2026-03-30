@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Caryn — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --primary-20: rgba(159,207,206,.2);
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --bg3: rgba(159,207,206,.2);
+  --text: #633B2E;
+  --neutral-dark: #633B2E;
+  --white: #FFFFFF;
+  --cream: #FCF9EF;
+  --cream2: #F5F1E6;
+  --sage: #9FCFCE;
+  --sage-dark: #633B2E;
+  --mid: #633B2E;
+  --light: #d4c8c2;
+  --charcoal: #633B2E;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:var(--nav-h);
+  padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--cream);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── SECTION SHARED ── */
+section{padding:100px 0;}
+.section-wave-bottom{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:2;}
+.section-wave-bottom svg{display:block;width:100%;}
+
+/* ── BUTTONS ── */
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary:hover{background:#68BAB8;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s,border-color .25s;}
+.btn-cta-secondary:hover{background:#EAF0E8;border-color:#68BAB8;}
+
+/* ── HERO ── */
+#about-hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 72px) 0 140px;
+  background:var(--bg1);
+}
+.about-hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:64px;
+  align-items:center;
+  margin-bottom:48px;
+}
+.about-hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.4rem,5.2vw,5.5rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.08;
+}
+.about-hero-h1 em{font-style:italic;color:var(--primary);}
+
+/* ── HERO PHOTO ── */
+.about-hero-photo-wrap{display:flex;align-items:center;justify-content:center;}
+.about-hero-img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ── HERO CREDENTIAL CARDS ── */
+.about-hero-creds{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+}
+.cred-card{
+  background:#F5F1E6;
+  border-radius:20px;
+  padding:28px 32px;
+  border:1px solid rgba(159,207,206,.1);
+  transition:box-shadow .3s,transform .3s;
+  cursor:default;
+}
+.cred-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.cred-card-label{
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--text);
+  opacity:.65;
+  margin-bottom:1.1rem;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.cred-entry{margin-bottom:.8rem;}
+.cred-entry:last-child{margin-bottom:0;}
+.cred-entry-title{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+.cred-entry-sub{font-size:.88rem;font-weight:500;color:var(--text);opacity:.75;padding-left:.8rem;position:relative;}
+.cred-entry-sub::before{content:'•';position:absolute;left:0;opacity:.6;}
+.cred-bullet{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.6;padding-left:.8rem;position:relative;margin-bottom:.4rem;}
+.cred-bullet:last-child{margin-bottom:0;}
+.cred-bullet::before{content:'•';position:absolute;left:0;opacity:.6;}
+
+/* ── PATH SECTION ── */
+#about-path{
+  background:rgba(159,207,206,.2);
+  padding:64px 0 72px;
+  margin-top:-1px;
+}
+.about-path-grid{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:64px;
+  align-items:center;
+}
+.about-path-floral-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:56px 32px;
+}
+.about-path-blob{
+  position:absolute;
+  width:72%;height:72%;
+  background:#CFE0E0;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+  border-radius:63% 37% 45% 55% / 55% 45% 62% 38%;
+}
+.about-path-flower{
+  position:relative;z-index:1;
+  width:82%;max-width:300px;
+  display:block;margin:0 auto;
+}
+.about-path-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.2rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.2;
+  margin-bottom:1.4rem;
+}
+.about-path-text p{
+  font-size:.99rem;
+  color:var(--text);
+  line-height:1.85;
+  font-weight:500;
+}
+.about-path-text p+p{margin-top:.9rem;}
+
+/* ── MANY PEOPLE SECTION ── */
+#about-many{
+  background:rgba(159,207,206,.2);
+  padding:0 0 72px;
+}
+.about-many-grid{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-many-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.15;
+  margin-bottom:1.6rem;
+}
+.about-many-text p{
+  font-size:.99rem;
+  color:var(--text);
+  line-height:1.85;
+  font-weight:500;
+  max-width:560px;
+}
+.about-many-text p+p{margin-top:.9rem;}
+.about-many-photo-wrap{display:flex;align-items:center;justify-content:center;}
+.about-many-img-container{
+  position:relative;
+  width:72%;
+  margin-top:48px;
+}
+.about-many-rect{
+  position:relative;
+  z-index:2;
+  width:100%;
+  aspect-ratio:.8;
+  border-radius:16px;
+  overflow:hidden;
+  background:#c9b8ae;
+  box-shadow:0 4px 24px rgba(0,0,0,.1);
+}
+.about-many-rect-inner{
+  width:100%;height:100%;
+  background:url('../images/About me - Many poeople.png') center/cover no-repeat;
+}
+.about-many-accent{
+  position:absolute;
+  z-index:1;
+  top:-48px;
+  left:48px;
+  width:100%;
+  aspect-ratio:.8;
+  background:#CFE0E0;
+  border-radius:16px;
+}
+
+/* ── QUOTE BANNER ── */
+.quote-banner{background:rgba(159,207,206,.2);padding:60px 0;}
+.quote-banner-inner{display:flex;align-items:center;gap:3rem;width:100%;}
+.quote-floral{flex-shrink:0;width:115px;}
+.quote-floral img{width:100%;height:auto;display:block;}
+.quote-banner-text{flex:1;}
+.quote-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
+.quote-banner p{font-size:.95rem;color:var(--mid);line-height:1.7;font-weight:500;}
+
+/* ── BIO SECTION ── */
+#about-bio{background:rgba(159,207,206,.2);padding:64px 0 72px;}
+.about-bio-grid{display:grid;grid-template-columns:0.7fr 1.5fr;gap:64px;align-items:center;}
+.about-bio-photo{width:100%;aspect-ratio:.78;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.08);}
+.about-bio-photo-inner{width:100%;height:100%;background:url('../images/About me - bottom section.png') center/cover no-repeat;}
+.about-bio-text p{font-size:1.1rem;color:var(--text);line-height:1.85;font-weight:500;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:rgba(159,207,206,.2);padding:60px 0;text-align:center;}
+.cta-banner-inner{
+  background:#ECE2DA;border-radius:40px;padding:70px 8%;
+  position:relative;overflow:hidden;
+}
+.cta-banner-inner::before{
+  content:'';position:absolute;
+  width:200px;height:220px;
+  border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;
+  background:rgba(168,142,130,.55);
+  left:-65px;top:50%;transform:translateY(-50%);
+  pointer-events:none;
+}
+.cta-banner-inner::after{
+  content:'';position:absolute;
+  width:115px;height:125px;
+  border-radius:45% 55% 60% 40% / 52% 48% 55% 45%;
+  background:rgba(168,142,130,.45);
+  right:-35px;bottom:-35px;
+  pointer-events:none;
+}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
+.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;font-weight:500;}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .about-hero-grid,.about-path-grid,.about-many-grid{grid-template-columns:1fr;gap:40px;}
+  .about-hero-photo-wrap{order:-1;}
+  .about-hero-img,.about-many-rect{width:70%;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:70px 0;}
+  .container{padding:0 16px;}
+  .about-hero-creds{grid-template-columns:1fr;}
+  .about-hero-img,.about-many-squircle{width:90%;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+  .quote-banner-inner{flex-direction:column;gap:1.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="therapy.html">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html" style="color:var(--text);font-weight:700;">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="about-hero">
+  <div class="container">
+    <div class="about-hero-grid">
+      <div class="about-hero-text">
+        <h1 class="about-hero-h1">Meet <em>Caryn Yeoh</em>,<br>your clinical<br>psychologist.</h1>
+      </div>
+      <div class="about-hero-photo-wrap">
+        <img src="../images/About me - Hero Image.png" alt="Caryn Yeoh" class="about-hero-img"/>
+      </div>
+    </div>
+    <div class="about-hero-creds">
+      <div class="cred-card">
+        <div class="cred-card-label">🎓 Education</div>
+        <div class="cred-entry">
+          <div class="cred-entry-title">Bachelor of Arts Psychology (Hons.)</div>
+          <div class="cred-entry-sub">International Medical University</div>
+        </div>
+        <div class="cred-entry">
+          <div class="cred-entry-title">Masters of Clinical Psychology</div>
+          <div class="cred-entry-sub">University of Cyberjaya</div>
+        </div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-card-label">💼 Professional Affiliations</div>
+        <div class="cred-bullet">Malaysian Allied Health Professions Council MAHPC (CP) 00465</div>
+        <div class="cred-bullet">Malaysian Society of Clinical Psychology CP1 - 0309</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-wave-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C240,80 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="rgba(159,207,206,.2)"/>
+    </svg>
+  </div>
+</section>
+
+<!-- I DIDN'T CHOOSE THIS PATH -->
+<section id="about-path">
+  <div class="container">
+    <div class="about-path-grid">
+      <div class="about-path-floral-wrap">
+        <div class="about-path-blob"></div>
+        <img src="../images/aboutme flower.png" alt="" class="about-path-flower"/>
+      </div>
+      <div class="about-path-text">
+        <h2>I didn't choose this path by accident.</h2>
+        <p>My interest in mental health began early, from witnessing how confusing and overwhelming emotional struggles can be, not just for the individual, but for those around them. What stayed with me was how alone people can feel, and the belief that everyone deserves understanding, support, and a space where they don't have to go through things on their own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANY PEOPLE I WORK WITH -->
+<section id="about-many">
+  <div class="container">
+    <div class="about-many-grid">
+      <div class="about-many-text">
+        <h2>Many people I work with are functioning on the outside, but struggling within.</h2>
+        <p>What we often call "symptoms" are not signs of brokenness, but ways of coping — patterns that once helped you get through. Over time, these can become exhausting when they no longer serve you. You may feel overwhelmed, stuck, or not quite yourself. In our sessions, you don't have to filter or perform. My approach is warm, grounded, and gently direct, a space where you can explore things honestly and begin making sense of what you're experiencing.</p>
+      </div>
+      <div class="about-many-photo-wrap">
+        <div class="about-many-img-container">
+          <div class="about-many-rect">
+            <div class="about-many-rect-inner"></div>
+          </div>
+          <div class="about-many-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <div class="container">
+    <div class="quote-banner-inner">
+      <div class="quote-floral">
+        <img src="../images/flower.png" alt=""/>
+      </div>
+      <div class="quote-banner-text">
+        <blockquote>"I believe change comes from understanding yourself more deeply, not rushing the process."</blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BIO SECTION -->
+<section id="about-bio">
+  <div class="container">
+    <div class="about-bio-grid">
+      <div class="about-bio-photo">
+        <div class="about-bio-photo-inner"></div>
+      </div>
+      <div class="about-bio-text">
+        <p>I work with individuals navigating anxiety, stress, low mood, and relational challenges, including those who feel like something doesn't quite make sense internally. Outside of my work, I stay grounded through taekwondo, and enjoy quiet time with my cat, along with psychological crime series and anime. At the core of my work is a simple belief: everyone deserves to be heard and understood, even if they've never had the space or words to express what they feel. My role is to walk alongside you as you make sense of your experiences, and support you in moving forward in a way that feels more aligned, intentional, and meaningful.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2>Schedule an initial consultation</h2>
+      <p>If you're not ready yet, you can take your time exploring and come back when you feel ready.</p>
+      <div class="cta-banner-btns">
+        <a href="booking.html" class="btn-cta-primary">
+          Book a Session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </a>
+        <a href="https://wa.me/601037720560" class="btn-cta-secondary">
+          Talk to someone
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>

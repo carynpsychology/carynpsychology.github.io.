@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Training &amp; Workshops — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --primary-20: rgba(159,207,206,.2);
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --bg3: rgba(159,207,206,.2);
+  --text: #633B2E;
+  --mid: #633B2E;
+  --charcoal: #633B2E;
+  --light: #d4c8c2;
+  --white: #FFFFFF;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--bg1);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg1);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── BUTTONS ── */
+.btn-primary{background:var(--primary);color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-size:.95rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-primary:hover{background:#68BAB8;transform:translateY(-2px);}
+
+/* ── HERO ── */
+#workshop-hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 80px) 0 140px;
+  background:var(--bg1);
+  text-align:center;
+}
+.workshop-wave-bottom{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:2;}
+#workshop-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:500;color:var(--text);line-height:1.05;margin-bottom:1rem;}
+#workshop-hero .hero-sub{font-size:1rem;color:var(--mid);line-height:1.75;margin:0 auto;font-weight:500;white-space:nowrap;}
+
+/* ── PRACTICAL SECTION ── */
+#practical{background:#DBE6DB;padding:80px 0 90px;margin-top:-1px;}
+.practical-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.practical-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:1.2rem;}
+.practical-text p{font-size:1.1rem;color:var(--text);line-height:1.85;margin-bottom:1.6rem;}
+.practical-img-wrap{display:flex;align-items:center;justify-content:center;}
+.practical-img{width:82%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#d8cfc8;box-shadow:0 8px 40px rgba(0,0,0,.1);}
+.practical-img-inner{width:100%;height:100%;background:url('https://placehold.co/480x480') center/cover no-repeat;}
+
+/* ── WHO WE SUPPORT ── */
+#who-support{background:var(--bg1);padding:90px 0 100px;}
+.who-header{margin-bottom:3rem;}
+.who-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);line-height:1.2;}
+.who-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.who-card{border-radius:40px;padding:40px;transition:box-shadow .3s,transform .3s;}
+.who-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.who-card-1{background:#F5F1E6;}
+.who-card-2{background:#C4DFDB;}
+.who-card-3{background:#C8DDC7;}
+.who-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.who-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--text);margin-bottom:.75rem;line-height:1.25;}
+.who-card-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem;}
+.who-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.1rem;position:relative;font-weight:500;}
+.who-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+
+/* ── TRAINING AREAS ── */
+#training-areas{background:#DBE6DB;padding:80px 0 90px;}
+.training-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.training-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.6rem;line-height:1.2;}
+.training-card{background:#FCF9EF;border-radius:24px;padding:32px 36px;margin-bottom:1.2rem;}
+.training-card:last-child{margin-bottom:0;}
+.training-subsection-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:500;color:var(--text);margin-bottom:.9rem;}
+.training-card-sub{font-size:.88rem;color:var(--text);line-height:1.7;margin-bottom:.6rem;font-weight:500;}
+.training-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:.4rem;}
+.training-bullets li{font-size:.88rem;color:var(--text);line-height:1.65;padding-left:1.1rem;position:relative;font-weight:500;}
+.training-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.7;}
+.training-photos{display:flex;align-items:center;justify-content:center;}
+.training-photo-wrap{position:relative;width:72%;margin-top:48px;}
+.training-photo-img{position:relative;z-index:2;width:100%;aspect-ratio:.8;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.1);}
+.training-photo-img div{width:100%;height:100%;background:url('../images/Therapy - what happens in.png') center/cover no-repeat;}
+.training-photo-bg{position:absolute;z-index:1;top:-48px;left:48px;width:100%;aspect-ratio:.8;background:#8F7066;border-radius:16px;}
+
+/* ── WHAT TO EXPECT ── */
+#what-expect{background:var(--bg1);padding:90px 0 100px;}
+.expect-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center;}
+.expect-floral{display:flex;align-items:center;justify-content:center;}
+.expect-floral-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:48px 32px;}
+.expect-blob{position:absolute;width:75%;height:75%;background:#F5F1E6;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;border-radius:60% 40% 52% 48% / 48% 56% 44% 52%;}
+.expect-floral-img{position:relative;z-index:1;width:95%;max-width:420px;display:block;margin:0 auto;}
+.expect-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1.2rem;line-height:1.2;}
+.expect-text p{font-size:1.05rem;color:var(--text);line-height:1.85;margin-bottom:1rem;font-weight:500;}
+.expect-label{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.5rem;}
+.expect-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;}
+.expect-bullets li{font-size:1rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
+.expect-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.7;}
+
+/* ── CUSTOMISED CTA ── */
+#customised{background:var(--bg1);padding:60px 0;text-align:center;}
+.customised-card{
+  background:#CAE0DA;border-radius:40px;padding:80px 12%;
+  position:relative;overflow:hidden;
+}
+.customised-card::before{
+  content:'';position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  background:#9FCFCE;
+  left:-80px;top:-80px;
+  pointer-events:none;
+}
+.customised-card::after{
+  content:'';position:absolute;
+  width:160px;height:160px;
+  border-radius:50%;
+  background:#9FCFCE;
+  right:-50px;bottom:-50px;
+  pointer-events:none;
+}
+.customised-inner{position:relative;z-index:1;text-align:center;max-width:600px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
+.customised-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:.4rem;line-height:1.2;white-space:nowrap;}
+.customised-inner p{font-size:.99rem;color:var(--text);opacity:.85;line-height:1.75;font-weight:500;margin:0;white-space:nowrap;}
+.customised-bullets{list-style:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:.4rem;margin:0 auto .6rem;}
+.customised-bullets li{font-size:.99rem;color:var(--text);line-height:1.65;font-weight:500;opacity:.85;display:flex;align-items:center;gap:.5rem;}
+.customised-bullets li::before{content:'•';flex-shrink:0;color:var(--text);opacity:.7;}
+.customised-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:.8rem;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary:hover{background:#68BAB8;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
+.btn-cta-secondary:hover{background:#EAF0E8;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .practical-grid,.training-grid,.expect-grid{grid-template-columns:1fr;}
+  .who-cards{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .container{padding:0 16px;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="therapy.html" style="color:var(--text);font-weight:700;">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html" style="color:var(--text);font-weight:700;">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="workshop-hero">
+  <div class="container">
+    <h1>Training &amp; Workshops</h1>
+    <p class="hero-sub">Whether you're a parent, educator, or organisation, sessions can be tailored to your setting and needs.</p>
+  </div>
+  <div class="workshop-wave-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C240,80 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="#DBE6DB"/>
+    </svg>
+  </div>
+</section>
+
+<!-- PRACTICAL -->
+<section id="practical">
+  <div class="container">
+    <div class="practical-grid">
+      <div class="practical-text">
+        <h2>Practical, evidence-based support for real world settings</h2>
+        <p>We offer training and workshops designed to help parents, educators, and organisations better understand and support neurodiverse individuals. Our sessions focus on practical strategies you can apply immediately — not just theory.</p>
+        <p>All trainings can be tailored to your setting, whether you're supporting a classroom, a team, or a community.</p>
+        <a href="contactus.html" class="btn-primary">Send an Enquiry →</a>
+      </div>
+      <div class="practical-img-wrap">
+        <div class="practical-img">
+          <div class="practical-img-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SUPPORT -->
+<section id="who-support">
+  <div class="container">
+    <div class="who-header">
+      <h2>Who we support</h2>
+    </div>
+    <div class="who-cards">
+      <div class="who-card who-card-1">
+        <div class="who-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <h3>Educators</h3>
+        <ul class="who-card-bullets">
+          <li>Managing behaviour, attention, and emotional regulation in the classroom</li>
+          <li>Supporting ADHD, autism, and diverse learning needs with practical strategies</li>
+        </ul>
+      </div>
+      <div class="who-card who-card-2">
+        <div class="who-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Parents of neurodiverse children</h3>
+        <ul class="who-card-bullets">
+          <li>Understanding your child's behaviour, emotions, and needs</li>
+          <li>Learning how to respond in ways that are effective and supportive</li>
+        </ul>
+      </div>
+      <div class="who-card who-card-3">
+        <div class="who-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Schools, institutions, and organisations</h3>
+        <ul class="who-card-bullets">
+          <li>Building inclusive environments for neurodiverse individuals</li>
+          <li>Equipping teams with practical, evidence-based approaches</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING AREAS -->
+<section id="training-areas">
+  <div class="container">
+    <div class="training-grid">
+      <div class="training-text">
+        <h2>Training areas</h2>
+        <div class="training-card">
+          <h4 class="training-subsection-title">Understanding &amp; Identification</h4>
+          <ul class="training-bullets">
+            <li>Recognise early signs and guide families with confidence</li>
+            <li>Identify early indicators of ADHD, autism, and learning differences</li>
+            <li>Distinguish behavioural concerns from underlying developmental needs</li>
+            <li>Communicate concerns to parents clearly and sensitively</li>
+            <li>Provide practical psychoeducation parents can understand and act on</li>
+            <li>Navigate referral pathways based on each child and family context</li>
+          </ul>
+        </div>
+        <div class="training-card">
+          <h4 class="training-subsection-title">Support &amp; Intervention</h4>
+          <p class="training-card-sub">Practical strategies for real-life situations</p>
+          <ul class="training-bullets">
+            <li>Manage challenging behaviour, meltdowns, and emotional regulation</li>
+            <li>Apply FBA-informed strategies to understand and respond effectively</li>
+            <li>Support attention, transitions, and classroom readiness skills</li>
+            <li>Respond to anxiety, mood, and internal struggles in older students</li>
+            <li>Use clear, consistent approaches across classroom and staff</li>
+          </ul>
+        </div>
+      </div>
+      <div class="training-photos">
+        <div class="training-photo-wrap">
+          <div class="training-photo-img"><div></div></div>
+          <div class="training-photo-bg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section id="what-expect">
+  <div class="container">
+    <div class="expect-grid">
+      <div class="expect-floral">
+        <div class="expect-floral-wrap">
+          <div class="expect-blob"></div>
+          <img src="../images/training flower.png" alt="" role="presentation" class="expect-floral-img"/>
+        </div>
+      </div>
+      <div class="expect-text">
+        <h2>What to expect</h2>
+        <p>Our trainings are grounded in clinical experience and real-world application — shaped by years of working directly with individuals, families, and neurodiverse populations.</p>
+        <p>We take an integrative, evidence-informed approach, drawing from:</p>
+        <ul class="expect-bullets">
+          <li>Cognitive Behavioural Therapy (CBT)</li>
+          <li>Behavioural approaches (including ABA-informed strategies)</li>
+          <li>Neurodiversity-affirming practices</li>
+          <li>Developmental and systems perspectives</li>
+        </ul>
+        <p>This allows us to move beyond theory and focus on what actually works in everyday settings. Each training section is:</p>
+        <ul class="expect-bullets">
+          <li>Interactive, discussion-based sessions</li>
+          <li>Practical strategies you can apply immediately</li>
+          <li>Real-life examples and case discussions</li>
+          <li>Tailored to your setting and needs</li>
+          <li>A supportive, non-judgmental space</li>
+        </ul>
+        <p>Available formats include:</p>
+        <ul class="expect-bullets">
+          <li>Talks and seminars</li>
+          <li>Small group workshops</li>
+          <li>Ongoing training series [ Coming Soon ]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMISED FOR YOUR SETTING -->
+<section id="customised">
+  <div class="container">
+    <div class="customised-card">
+      <div class="customised-inner">
+        <h2>Customised for your setting</h2>
+        <p>Every environment is different. We work with you to design training that fits your:</p>
+        <ul class="customised-bullets">
+          <li>Student or client profile</li>
+          <li>Team experience level</li>
+          <li>Specific challenges and goals</li>
+        </ul>
+        <a href="contactus.html" class="btn-primary" style="margin-top:.8rem;">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>

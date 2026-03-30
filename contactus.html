@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Us — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --text: #633B2E;
+  --mid: #633B2E;
+  --charcoal: #633B2E;
+  --light: #d4c8c2;
+  --sage: #9FCFCE;
+  --sage-pale: #ddecea;
+  --sage-dark: #633B2E;
+  --white: #FFFFFF;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--bg1);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:var(--nav-h);
+  padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}
+.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg1);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── HERO ── */
+#contact-hero{
+  padding:calc(var(--nav-h) + 72px) 0 32px;
+  background:var(--bg1);
+  text-align:center;
+}
+#contact-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:500;color:var(--text);line-height:1.05;margin-bottom:1rem;}
+#contact-hero p{font-size:1rem;color:var(--mid);line-height:1.75;margin:0 auto;font-weight:500;white-space:nowrap;}
+
+/* ── CONTACT SECTION ── */
+#contact-main{background:var(--bg1);padding:24px 0 100px;}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:0;align-items:start;max-width:680px;margin:0 auto;}
+.contact-info{background:#F5F1E6;border:1px solid rgba(159,207,206,.1);border-radius:24px;padding:36px 32px;}
+.contact-info h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;margin-bottom:1.8rem;color:var(--text);}
+.info-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.4rem;}
+.info-item .ico{width:36px;height:36px;border-radius:8px;background:var(--sage-pale);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.info-item strong{display:block;font-size:.82rem;color:var(--charcoal);margin-bottom:.15rem;}
+.info-item span{font-size:0.935rem;color:var(--mid);font-weight:500;}
+
+/* ── FORM ── */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{margin-bottom:1.1rem;display:flex;flex-direction:column;gap:.4rem;}
+label{font-size:.82rem;letter-spacing:.02em;color:var(--mid);}
+input,select,textarea{width:100%;padding:.8rem 1rem;border:1px solid var(--light);border-radius:6px;background:#fff;font-family:'Quicksand',sans-serif;font-size:0.99rem;color:var(--charcoal);outline:none;transition:border-color .2s;}
+input:focus,select:focus,textarea:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(159,207,206,.15);}
+textarea{resize:vertical;min-height:140px;}
+.form-submit{margin-top:.5rem;}
+.btn-send{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:1rem 2rem;border-radius:100px;border:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .25s,transform .2s;}
+.btn-send:hover{background:#68BAB8;transform:translateY(-2px);}
+.success-msg{display:none;background:var(--sage-pale);border:1px solid var(--primary);border-radius:8px;padding:.9rem 1.2rem;color:var(--sage-dark);font-size:.88rem;margin-top:1rem;font-weight:500;}
+.error-msg{display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:.9rem 1.2rem;color:#dc2626;font-size:.88rem;margin-top:1rem;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .container{padding:0 16px;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="therapy.html">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contactus.html" style="color:var(--text);font-weight:700;">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="contact-hero">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Have a question or not sure where to start? Reach out and we'll guide you to the right support.</p>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <form id="contactForm" onsubmit="submitToGoogleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Name *</label>
+              <input id="cf-name" type="text" required placeholder="Your name"/>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email *</label>
+              <input id="cf-email" type="email" required placeholder="your@email.com"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Phone *</label>
+            <input id="cf-phone" type="tel" required placeholder="+6 010 000 0000"/>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Subject *</label>
+            <input id="cf-subject" type="text" required placeholder="e.g. General Enquiry, Booking, Workshops..."/>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message *</label>
+            <textarea id="cf-message" required placeholder="How can we help you?"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" id="cf-btn" class="btn-send">Send Message</button>
+          </div>
+          <div class="success-msg" id="cf-success">✓ Thank you! Your message has been sent. We'll get back to you within 1–2 business days.</div>
+          <div class="error-msg" id="cf-error">✗ Something went wrong. Please try again or email us directly at therapyandtraining@carynpsychology.com</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  window.submitToGoogleForm=function(e){
+    e.preventDefault();
+    const btn=document.getElementById('cf-btn');
+    const success=document.getElementById('cf-success');
+    const error=document.getElementById('cf-error');
+    btn.disabled=true;btn.textContent='Sending…';
+    success.style.display='none';error.style.display='none';
+    const name=document.getElementById('cf-name').value;
+    const email=document.getElementById('cf-email').value;
+    const phone=document.getElementById('cf-phone').value;
+    const subject=document.getElementById('cf-subject').value;
+    const message=document.getElementById('cf-message').value;
+    const formUrl='https://docs.google.com/forms/d/e/1FAIpQLScooDmGpwzKwfp3FxaEUI-WPoBCBDD4FwufrtKJntOX3rVxTA/formResponse';
+    const params=new URLSearchParams({'entry.170615853':name,'entry.518128703':email,'entry.746960839':phone,'entry.660969661':subject,'entry.657249477':message});
+    const iframe=document.createElement('iframe');
+    iframe.name='gform-target';iframe.style.display='none';document.body.appendChild(iframe);
+    const form=document.createElement('form');
+    form.method='POST';form.action=formUrl;form.target='gform-target';
+    params.forEach((v,k)=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i);});
+    document.body.appendChild(form);form.submit();
+    setTimeout(()=>{
+      btn.disabled=false;btn.textContent='Send Message';
+      success.style.display='block';
+    },1000);
+  };
+</script>
+</body>
+</html>

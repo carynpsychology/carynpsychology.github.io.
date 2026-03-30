@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Assessment — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --primary-20: rgba(159,207,206,.2);
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --bg3: rgba(159,207,206,.2);
+  --text: #633B2E;
+  --mid: #633B2E;
+  --light: #d4c8c2;
+  --charcoal: #633B2E;
+  --forest: #464646;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--bg1);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg1);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── SHARED ── */
+section{padding:100px 0;}
+.section-eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--text);opacity:.7;margin-bottom:1rem;}
+h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;}
+.section-sub{color:var(--mid);max-width:680px;line-height:1.85;font-size:0.99rem;margin-bottom:2rem;}
+.btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-primary:hover{background:#7db8b7;transform:translateY(-2px);}
+
+/* ── WAVE ── */
+.section-wave-bottom{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:2;}
+.section-wave-bottom svg{display:block;width:100%;}
+
+/* ── HERO ── */
+#assessment-hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 60px) 0 140px;
+  background:var(--bg1);
+  text-align:center;
+}
+.assessment-hero-eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#633B2E;margin-bottom:1.6rem;background:rgba(0,0,0,.06);display:inline-block;padding:.45rem 1.1rem;border-radius:100px;}
+#assessment-hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.05;
+  margin-bottom:1.2rem;
+}
+.assessment-hero-subtitle{font-size:1rem;color:var(--mid);line-height:1.7;max-width:900px;margin:0 auto;}
+
+/* ── WHO IS THIS FOR ── */
+#who-for{background:#EAF0E8;padding:80px 0 100px;margin-top:-1px;}
+.who-for-header{margin-bottom:3rem;}
+.who-for-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.who-for-card{background:#FCF9EF;border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .3s,transform .3s;}
+.who-for-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.who-for-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.08);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.who-for-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--text);line-height:1.2;}
+.who-for-card p{font-size:.95rem;color:var(--text);line-height:1.75;}
+.who-for-bullets{list-style:none;padding:0;margin:.25rem 0 0;display:flex;flex-direction:column;gap:.45rem;}
+.who-for-bullets li{font-size:.93rem;color:var(--text);line-height:1.6;padding-left:1.2rem;position:relative;}
+.who-for-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+
+/* ── PROCESS ── */
+#process{background:#F5F1E6;padding:90px 0 100px;}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.process-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.8rem;line-height:1.2;}
+.process-cards{display:flex;flex-direction:column;gap:1rem;}
+.process-card{background:#FCF9EF;border-radius:24px;padding:24px 28px;transition:box-shadow .3s,transform .3s;}
+.process-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.process-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--text);margin-bottom:.5rem;line-height:1.25;}
+.process-card p{font-size:.9rem;color:var(--text);line-height:1.7;opacity:.85;margin-bottom:.4rem;}
+.process-card-bullets{list-style:none;padding:0;margin:.2rem 0 0;display:flex;flex-direction:column;gap:.3rem;}
+.process-card-bullets li{font-size:.88rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;opacity:.85;}
+.process-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+.process-img-wrap{position:relative;padding-top:80px;padding-bottom:80px;}
+.process-img-rect{position:relative;z-index:2;width:65%;aspect-ratio:.72;background:url('https://placehold.co/380x530') center/cover no-repeat;border-radius:16px;overflow:hidden;flex-shrink:0;}
+.process-img-accent{position:absolute;z-index:1;bottom:0;left:18%;width:65%;aspect-ratio:.72;background:#CFE0E0;border-radius:20px;}
+
+/* ── OUR FEES ── */
+#our-fees{background:#FCF9EF;padding:90px 0 100px;}
+.fees-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.fees-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,3.8rem);font-weight:500;color:var(--text);line-height:1.1;}
+.fees-card{background:#F5F1E6;border-radius:40px;padding:40px;}
+.fees-card-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:500;color:var(--text);margin-bottom:.3rem;}
+.fees-card-sub{font-size:.93rem;color:var(--text);opacity:.7;margin-bottom:1.4rem;}
+.fees-price{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--primary);margin-bottom:1.4rem;line-height:1.1;}
+.fees-checklist{list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:.75rem;}
+.fees-checklist li{display:flex;align-items:center;gap:.7rem;font-size:.93rem;color:var(--text);}
+.fees-checklist li svg{flex-shrink:0;}
+.fees-card-btn{display:block;width:100%;text-align:center;background:#FCF9EF;color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-size:.95rem;font-weight:700;border:1.5px solid #9FCFCE;transition:background .25s,border-color .25s;}
+.fees-card-btn:hover{background:#EAF0E8;border-color:#68BAB8;}
+
+/* ── QUOTE BANNER ── */
+.quote-banner{background:var(--bg2);padding:70px 0;}
+.quote-banner-inner{display:flex;align-items:center;gap:3rem;width:100%;}
+.quote-floral{flex-shrink:0;width:115px;}
+.quote-floral img{width:100%;height:auto;display:block;}
+.quote-banner-text{flex:1;}
+.quote-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
+.quote-banner p{font-size:.95rem;color:var(--mid);line-height:1.7;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:#FCF9EF;padding:60px 0;text-align:center;}
+.cta-banner-inner{background:#ECE2DA;border-radius:40px;padding:70px 8%;position:relative;overflow:hidden;}
+.cta-banner-inner::before{content:'';position:absolute;width:200px;height:220px;border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;background:rgba(168,142,130,.55);left:-65px;top:50%;transform:translateY(-50%);pointer-events:none;}
+.cta-banner-inner::after{content:'';position:absolute;width:115px;height:125px;border-radius:45% 55% 60% 40% / 52% 48% 55% 45%;background:rgba(168,142,130,.45);right:-35px;bottom:-35px;pointer-events:none;}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
+.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary:hover{background:#68BAB8;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
+.btn-cta-secondary:hover{background:#EAF0E8;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .who-for-cards,.process-grid,.fees-grid{grid-template-columns:1fr;gap:40px;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:70px 0;}
+  .container{padding:0 16px;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+  .quote-banner-inner{flex-direction:column;gap:1.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="assessment.html" style="color:var(--text);font-weight:700;">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="assessment-hero">
+  <div class="container">
+
+    <h1>Assessment</h1>
+    <p class="assessment-hero-subtitle">Assessments are a structured way to gain a deeper understanding of specific concerns, whether for yourself or your child. Below, you'll find who this process is suited for, along with a clear overview of what to expect at each step.</p>
+  </div>
+  <div class="section-wave-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C240,80 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="#EAF0E8"/>
+    </svg>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section id="who-for">
+  <div class="container">
+    <div class="who-for-header">
+      <h2 class="section-title">Who is this for?</h2>
+    </div>
+    <div class="who-for-cards">
+      <div class="who-for-card">
+        <div class="who-for-icon">😊</div>
+        <h3>Children &amp; Teens</h3>
+        <p>Most assessments are conducted for children and adolescents when there are concerns about development or school functioning.</p>
+        <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">When is an assessment helpful?</p>
+        <ul class="who-for-bullets">
+          <li>Attention, focus, or hyperactivity (e.g. ADHD)</li>
+          <li>Social or communication differences (e.g. autism)</li>
+          <li>Learning or developmental delays</li>
+          <li>Ongoing challenges in school</li>
+        </ul>
+        <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">What the assessment may include</p>
+        <ul class="who-for-bullets">
+          <li>Cognitive (IQ) testing</li>
+          <li>Behavioural and developmental measures (e.g. Conners, GARS, Vineland)</li>
+          <li>Clinical evaluation to understand your child's profile</li>
+        </ul>
+        <p style="margin-top:.75rem;">The goal is to provide a clear understanding and guide appropriate support.</p>
+      </div>
+      <div class="who-for-card">
+        <div class="who-for-icon">☺️</div>
+        <h3>Adults</h3>
+        <p>For adults, assessments may be helpful in understanding:</p>
+        <ul class="who-for-bullets">
+          <li>Attention-related concerns (e.g. ADHD)</li>
+          <li>Autism or long-standing social differences</li>
+          <li>Patterns that have affected functioning over time</li>
+        </ul>
+        <p style="margin-top:.75rem;">You may not always require a formal assessment. In some cases, these concerns can also be explored through therapy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE PROCESS LOOKS LIKE -->
+<section id="process">
+  <div class="container">
+    <div class="process-grid">
+      <div>
+        <h2 class="process-title">What the process looks like</h2>
+        <div class="process-cards">
+          <div class="process-card">
+            <h3>Initial Consultation (Recommended first)</h3>
+            <ul class="process-card-bullets">
+              <li>Understand concerns and decide if assessment is needed.</li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <h3>Assessment Sessions (2 – 4 sessions)</h3>
+            <p>Testing is usually done across multiple sessions. The number of sessions depend on the child's age, attention span, and individual needs.</p>
+            <ul class="process-card-bullets">
+              <li>Each session: 60–90 minutes</li>
+              <li>In-person only</li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <h3>Scoring &amp; Interpretation</h3>
+            <p>All results are carefully analysed and integrated.</p>
+          </div>
+          <div class="process-card">
+            <h3>Feedback Session</h3>
+            <p>You'll receive:</p>
+            <ul class="process-card-bullets">
+              <li>Clear explanation of findings</li>
+              <li>Diagnosis (if applicable)</li>
+              <li>Practical recommendations</li>
+              <li>A concise written report for formal use</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="process-img-wrap">
+        <div class="process-img-rect"></div>
+        <div class="process-img-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR FEES -->
+<section id="our-fees">
+  <div class="container">
+    <div class="fees-grid">
+      <div class="fees-left">
+        <h2>Our fees</h2>
+      </div>
+      <div class="fees-card">
+        <p class="fees-card-title">In-person session</p>
+        <p class="fees-card-sub">A structured way to gain a deeper understanding</p>
+        <p class="fees-price">RM 1,500 – RM 2,000</p>
+        <ul class="fees-checklist">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="6,10 8.5,12.5 14,7.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            In-person assessment
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="6,10 8.5,12.5 14,7.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            2–4 sessions · 60–90 minutes each
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="6,10 8.5,12.5 14,7.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Tailored to individual needs
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="6,10 8.5,12.5 14,7.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Includes briefing + short report
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="6,10 8.5,12.5 14,7.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Clear findings and next step
+          </li>
+        </ul>
+        <a href="booking.html" class="fees-card-btn">Book a Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2>Schedule an initial consultation</h2>
+      <p>We'll guide you on whether assessment is necessary.</p>
+      <div class="cta-banner-btns">
+        <a href="booking.html" class="btn-cta-primary">
+          Book a Session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </a>
+        <a href="https://wa.me/601037720560" class="btn-cta-secondary">
+          Talk to someone
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>

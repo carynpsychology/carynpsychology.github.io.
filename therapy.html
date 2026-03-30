@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Therapy — Caryn Yeoh Psychology</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #9FCFCE;
+  --primary-20: rgba(159,207,206,.2);
+  --secondary: #A3C0A4;
+  --bg1: #FCF9EF;
+  --bg2: #F5F1E6;
+  --bg3: rgba(159,207,206,.2);
+  --text: #633B2E;
+  --neutral-dark: #633B2E;
+  --white: #FFFFFF;
+  --cream: #FCF9EF;
+  --cream2: #F5F1E6;
+  --sage: #9FCFCE;
+  --sage-light: #A3C0A4;
+  --sage-pale: #ddecea;
+  --sage-dark: #633B2E;
+  --forest: #464646;
+  --charcoal: #633B2E;
+  --warm-dark: #333;
+  --mid: #633B2E;
+  --light: #d4c8c2;
+  --nav-h: 68px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Quicksand',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:var(--nav-h);
+  padding:0;background:rgba(252,249,239,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:.5rem;}
+.nav-logo img{mix-blend-mode:multiply;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
+.nav-links a:hover{color:var(--charcoal);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
+.nav-dropdown:hover>a svg,.nav-dropdown:focus-within>a svg{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:12px;min-width:200px;z-index:1000;}
+.nav-dropdown-menu-inner{background:rgba(252,249,239,.98);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:.5rem;box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
+.nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
+.nav-cta:hover{background:#7db8b7!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--cream);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
+
+/* ── CONTAINER ── */
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:100%;}
+
+/* ── SECTION SHARED ── */
+section{padding:100px 0;}
+.section-eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--text);opacity:.7;margin-bottom:1rem;}
+h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;}
+h2.section-title em{font-style:italic;color:var(--primary);}
+.section-sub{color:var(--mid);max-width:520px;line-height:1.85;font-size:0.99rem;margin-bottom:2rem;}
+.btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-primary:hover{background:#7db8b7;transform:translateY(-2px);}
+.btn-ghost{border:1.5px solid var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:all .25s;display:inline-block;}
+.btn-ghost:hover{background:rgba(159,207,206,.15);}
+
+/* ── SECTION TRANSITION WAVES ── */
+.section-wave-bottom{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:2;}
+.section-wave-bottom svg{display:block;width:100%;}
+
+/* ── HERO ── */
+#therapy-hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 60px) 0 140px;
+  background:var(--bg1);
+  text-align:center;
+}
+.therapy-hero-eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#633B2E;margin-bottom:1.6rem;background:rgba(0,0,0,.06);display:inline-block;padding:.45rem 1.1rem;border-radius:100px;}
+#therapy-hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  font-weight:500;
+  color:var(--text);
+  line-height:1.05;
+  margin-bottom:1.2rem;
+}
+.therapy-hero-subtitle{font-size:1rem;color:var(--mid);line-height:1.7;max-width:680px;margin:0 auto;}
+
+/* ── HOW THERAPY WORKS ── */
+#how-therapy{background:#EAF0E8;padding:50px 0 100px;margin-top:-1px;}
+.how-therapy-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.how-therapy-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.2rem;line-height:1.2;}
+.how-therapy-text p{font-size:.99rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
+.how-therapy-label{font-size:.99rem;font-weight:700;color:var(--text);display:block;margin:1rem 0 .45rem;}
+.how-therapy-bullets{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.4rem;}
+.how-therapy-bullets li{font-size:.95rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;}
+.how-therapy-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.7;}
+.how-therapy-img-wrap{display:flex;align-items:center;justify-content:center;}
+.how-therapy-real-img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ── WHAT WE CAN HELP WITH ── */
+#help-with{background:#F5F1E6;padding:90px 0 100px;}
+.help-with-header{margin-bottom:2.5rem;}
+.help-with-header .section-sub{max-width:680px;margin-bottom:0;}
+.help-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.help-card{border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .3s,transform .3s;}
+.help-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.help-card-emotional{grid-column:1/3;background:#FCF9EF;}
+.help-card-thought{grid-column:3/4;background:#C4DFDB;}
+.help-card-trauma{background:#C4DFDB;}
+.help-card-life{background:#C8DDC7;}
+.help-card-neuro{background:#FCF9EF;}
+.help-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:.25rem;}
+.help-card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--text);line-height:1.25;}
+.help-card-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;}
+.help-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
+.help-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+
+/* ── OUR APPROACH ── */
+#our-approach{background:#FCF9EF;padding:90px 0 80px;}
+.our-approach-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center;}
+.approach-floral-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:48px 32px;}
+.approach-blob{
+  position:absolute;
+  width:62%;height:62%;
+  background:#F5F1E6;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:0;
+  border-radius:63% 37% 54% 46% / 55% 62% 38% 45%;
+}
+.approach-flower-img{position:relative;z-index:1;width:75%;max-width:270px;display:block;margin:0 auto;}
+.approach-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.2rem;line-height:1.2;}
+.approach-text p{font-size:.95rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
+.approach-list{list-style:none;margin:.5rem 0 1rem;display:flex;flex-direction:column;gap:.6rem;}
+.approach-list li{font-size:.93rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;}
+.approach-list li::before{content:'•';position:absolute;left:0;color:var(--text);}
+
+/* ── WHAT HAPPENS IN THERAPY ── */
+#what-happens{background:#FCF9EF;padding:20px 0 100px;}
+.what-happens-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.what-happens-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.6rem;line-height:1.2;}
+.what-happens-cards{display:flex;flex-direction:column;gap:1.2rem;}
+.what-happens-card{background:#F5F1E6;border-radius:24px;padding:28px 32px;}
+.what-happens-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.25;}
+.what-card-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;}
+.what-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
+.what-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+/* single photo with offset */
+.what-happens-photos{display:flex;align-items:center;justify-content:center;}
+.what-photo-wrap{position:relative;width:72%;margin-top:48px;}
+.what-photo-img{position:relative;z-index:2;width:100%;aspect-ratio:.8;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.1);}
+.what-photo-img div{width:100%;height:100%;background:url('../images/Therapy - what happens in.png') center/cover no-repeat;}
+.what-photo-bg{position:absolute;z-index:1;top:-48px;left:48px;width:100%;aspect-ratio:.8;background:#8F7066;border-radius:16px;}
+
+/* ── THERAPY, YOUR WAY ── */
+#therapy-way{background:#FCF9EF;padding:90px 0 100px;}
+.therapy-way-header{margin-bottom:3rem;}
+.therapy-way-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2;}
+.therapy-way-header p{font-size:.99rem;color:var(--mid);line-height:1.85;max-width:560px;}
+.therapy-way-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+/* service card styles (shared with index.html) */
+.service-card{background:#FCF9EF;border-radius:40px;padding:40px;border:1.5px solid rgba(0,0,0,.07);transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column;gap:0;}
+.service-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
+.service-card.featured{border:1.5px solid var(--primary);background:rgba(159,207,206,.2);position:relative;overflow:visible;}
+.service-badge{font-family:'Quicksand',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFFFF;background:var(--primary);border-radius:100px;padding:.3rem .9rem;position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:500;color:var(--text);margin-bottom:.75rem;line-height:1.2;}
+.service-card>.service-desc{font-family:'Quicksand',sans-serif;font-size:1rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;}
+.service-price{font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;}
+.service-price strong{font-size:2rem;font-weight:700;line-height:1;color:var(--primary);}
+.service-price span{font-size:.85rem;font-weight:500;color:var(--text);opacity:.75;margin-left:.2rem;}
+.service-bullets{list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:.55rem;flex:1;}
+.service-bullets li{display:flex;align-items:center;gap:.55rem;font-family:'Quicksand',sans-serif;font-size:.95rem;color:var(--text);}
+.service-bullets li svg{flex-shrink:0;}
+.btn-service-primary{display:block;width:100%;text-align:center;background:var(--primary);color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s,color .25s;margin-top:auto;border:none;cursor:pointer;}
+.btn-service-primary:hover{background:#68BAB8;color:#5C3427;}
+.btn-service-secondary{display:block;width:100%;text-align:center;background:#FCF9EF;color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s,border-color .25s;margin-top:auto;border:1.5px solid var(--primary);cursor:pointer;}
+.btn-service-secondary:hover{background:#EAF0E8;border-color:#68BAB8;}
+
+/* ── QUOTE BANNER ── */
+.quote-banner{background:var(--bg2);padding:70px 0;}
+.quote-banner-inner{display:flex;align-items:center;gap:3rem;width:100%;}
+.quote-floral{flex-shrink:0;width:115px;}
+.quote-floral img{width:100%;height:auto;display:block;}
+.quote-banner-text{flex:1;}
+.quote-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
+.quote-banner p{font-size:.95rem;color:var(--mid);line-height:1.7;}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:#F5F1E6;padding:60px 0;text-align:center;}
+.cta-banner-inner{
+  background:#ECE2DA;border-radius:40px;padding:70px 8%;
+  position:relative;overflow:hidden;
+}
+.cta-banner-inner::before{
+  content:'';position:absolute;
+  width:200px;height:220px;
+  border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;
+  background:rgba(168,142,130,.55);
+  left:-65px;top:50%;transform:translateY(-50%);
+  pointer-events:none;
+}
+.cta-banner-inner::after{
+  content:'';position:absolute;
+  width:115px;height:125px;
+  border-radius:45% 55% 60% 40% / 52% 48% 55% 45%;
+  background:rgba(168,142,130,.45);
+  right:-35px;bottom:-35px;
+  pointer-events:none;
+}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
+.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary:hover{background:#68BAB8;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
+.btn-cta-secondary:hover{background:#EAF0E8;}
+
+/* ── FOOTER ── */
+footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
+.footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
+.footer-logo img{width:34px;height:34px;object-fit:contain;}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
+.footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
+.footer-btn-cta{font-size:.82rem;color:var(--text);background:var(--primary);border-radius:100px;padding:.45rem 1.3rem;text-decoration:none;font-weight:700;transition:background .2s;}
+.footer-btn-cta:hover{background:#7db8b7;}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0;}
+.footer-main{display:grid;grid-template-columns:1fr auto;gap:4rem;padding:2.5rem 0;}
+.footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
+.footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
+.footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
+.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-cols{display:flex;gap:4rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,.9);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
+.footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .how-therapy-grid,.our-approach-grid,.what-happens-layout{grid-template-columns:1fr;gap:40px;}
+  .approach-floral-wrap{order:-1;}
+  .approach-flower-img{max-width:200px;}
+  .what-happens-photos{grid-template-columns:1fr 1fr;padding-top:0;}
+  .help-cards-grid{grid-template-columns:1fr 1fr;}
+  .therapy-way-cards{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;gap:2rem;}
+  .footer-cols{gap:2rem;}
+}
+@media(max-width:680px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:70px 0;}
+  .container{padding:0 16px;}
+  .help-cards-grid{grid-template-columns:1fr;}
+  .footer-cols{flex-direction:column;gap:1.5rem;}
+  .footer-ctas{gap:.5rem;}
+  .quote-banner-inner{flex-direction:column;gap:1.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+    <a href="index.html" class="nav-logo">
+      <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
+      Caryn Yeoh Psychology
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="therapy.html" style="color:var(--text);font-weight:700;">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="therapy.html">Individual Therapy</a>
+            <a href="assessment.html">Assessment</a>
+            <a href="training-workshops.html">Training &amp; Workshops</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
+      <li><a href="booking.html" class="nav-cta">Book Session</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <a href="aboutme.html" onclick="closeMenu()">About</a>
+  <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="booking.html" onclick="closeMenu()">Book Session</a>
+</div>
+
+<!-- HERO -->
+<section id="therapy-hero">
+  <div class="container">
+
+    <h1>Therapy</h1>
+    <p class="therapy-hero-subtitle">A space to understand what you're going through — and begin to feel differently.</p>
+  </div>
+  <div class="section-wave-bottom">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C240,80 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="#EAF0E8"/>
+    </svg>
+  </div>
+</section>
+
+<!-- HOW THERAPY WORKS -->
+<section id="how-therapy">
+  <div class="container">
+    <div class="how-therapy-grid">
+      <div class="how-therapy-text">
+        <h2 class="section-title">How Therapy works</h2>
+        <p>Therapy is a space to slow down, talk things through, and begin making sense of what you're experiencing.</p>
+        <p>You don't need a diagnosis to start.</p>
+        <span class="how-therapy-label">Together we:</span>
+        <ul class="how-therapy-bullets">
+          <li>Explore what's been feeling difficult or overwhelming</li>
+          <li>Understand patterns, emotions, and underlying causes</li>
+          <li>Work through concerns like anxiety, burnout, OCD, phobias, or low mood</li>
+        </ul>
+        <p>For many adults, clarity and even diagnosis can emerge naturally through this process – without the need for formal testing.</p>
+        <span class="how-therapy-label">What it feels like:</span>
+        <p>A conversation that gradually brings insight, relief, and direction.</p>
+        <br/>
+        <a href="booking.html" class="btn-primary">Begin Your Journey
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="how-therapy-img-wrap">
+        <img src="../images/Therapy - Hero.png" alt="Therapy" class="how-therapy-real-img"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE CAN HELP WITH -->
+<section id="help-with">
+  <div class="container">
+    <div class="help-with-header">
+      <h2 class="section-title">What we can help with</h2>
+      <p class="section-sub">Therapy is a space to slow down, talk things through, and make sense of what's been feeling difficult. You don't need to have everything figured out before you begin.</p>
+    </div>
+    <div class="help-cards-grid">
+      <!-- Emotional & Mental Wellbeing — white, spans 2 cols -->
+      <div class="help-card help-card-emotional">
+        <div class="help-card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M6 10.5s1 1.5 3 1.5 3-1.5 3-1.5M7 7h.01M11 7h.01"/></svg>
+        </div>
+        <h3>Emotional &amp; Mental Wellbeing</h3>
+        <ul class="help-card-bullets">
+          <li>Anxiety, stress, burnout</li>
+          <li>Low mood, feeling overwhelmed</li>
+        </ul>
+      </div>
+      <!-- Thought patterns — blue -->
+      <div class="help-card help-card-thought">
+        <div class="help-card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2a5 5 0 0 1 3.5 8.5L13 14H5l.5-3.5A5 5 0 0 1 9 2z"/><line x1="7" y1="16" x2="11" y2="16"/></svg>
+        </div>
+        <h3>Thought patterns</h3>
+        <ul class="help-card-bullets">
+          <li>Overthinking, perfectionism</li>
+          <li>Low self-esteem, catastrophising</li>
+        </ul>
+      </div>
+      <!-- Trauma & Regulation — green -->
+      <div class="help-card help-card-trauma">
+        <div class="help-card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l2 4 4.5.65-3.25 3.17.77 4.47L9 12.1l-4.02 2.19.77-4.47L2.5 6.65 7 6z"/></svg>
+        </div>
+        <h3>Trauma &amp; Regulation</h3>
+        <ul class="help-card-bullets">
+          <li>Past experiences affecting you now</li>
+          <li>Difficulty managing emotions or reactions</li>
+        </ul>
+      </div>
+      <!-- Life & Relationships — white -->
+      <div class="help-card help-card-life">
+        <div class="help-card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l1.5 3 3.5.5-2.5 2.5.6 3.5L9 11l-3.1 1.5.6-3.5L4 6.5 7.5 6z"/></svg>
+        </div>
+        <h3>Life &amp; Relationships</h3>
+        <ul class="help-card-bullets">
+          <li>Feeling stuck or lost</li>
+          <li>Relationship or identity struggles</li>
+        </ul>
+      </div>
+      <!-- Neurodiversity — blue -->
+      <div class="help-card help-card-neuro">
+        <div class="help-card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg>
+        </div>
+        <h3>Neurodiversity</h3>
+        <ul class="help-card-bullets">
+          <li>Autism or ADHD-related challenges</li>
+          <li>Social, emotional, or learning support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section id="our-approach">
+  <div class="container">
+    <div class="our-approach-grid">
+      <div class="approach-floral-wrap">
+        <div class="approach-blob"></div>
+        <img src="../images/therapy%20flower.png" alt="Botanical illustration" class="approach-flower-img"/>
+      </div>
+      <div class="approach-text">
+        <h2 class="section-title">Our approach</h2>
+        <p>We use an integrative, evidence-based approach, tailored to you.</p>
+        <p>This may include:</p>
+        <ul class="approach-list">
+          <li>Cognitive Behavioural Therapy (CBT)</li>
+          <li>Trauma-Focused CBT</li>
+          <li>Acceptance and Commitment Therapy (ACT)</li>
+          <li>Dialectical Behaviour Therapy (DBT)</li>
+          <li>Behavioural strategies and emotional regulation work</li>
+          <li>Mindfulness-based approaches</li>
+        </ul>
+        <p>Rather than applying a single method, we focus on what fits you best — your goals, your pace, and your experiences. Along the way, you can expect:</p>
+        <ul class="approach-list" style="margin-top:.5rem;">
+          <li>A safe, non-judgmental space</li>
+          <li>Clear understanding of your patterns</li>
+          <li>Practical tools for daily life</li>
+          <li>Support that is both gentle and effective</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS IN THERAPY -->
+<section id="what-happens">
+  <div class="container">
+    <div class="what-happens-layout">
+      <div class="what-happens-left">
+        <h2 class="section-title">What happens in Therapy</h2>
+        <div class="what-happens-cards">
+          <div class="what-happens-card">
+            <h3>Initial Consultation (60 – 90 mins)</h3>
+            <ul class="what-card-bullets" style="margin-top:.5rem;">
+              <li>We begin with understanding you — your experiences, patterns, and what's been going on.</li>
+              <li>There's no pressure to "perform" or explain everything perfectly. We take it step by step.</li>
+            </ul>
+          </div>
+          <div class="what-happens-card">
+            <h3>Ongoing Sessions (45 – 60 mins)</h3>
+            <p style="font-size:.9rem;color:var(--text);line-height:1.75;margin-bottom:.5rem;margin-top:.2rem;">We work together to:</p>
+            <ul class="what-card-bullets">
+              <li>Understand patterns and underlying causes</li>
+              <li>Make sense of emotions and reactions</li>
+              <li>Build practical tools and coping strategies</li>
+              <li>Create meaningful, sustainable change</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="what-happens-photos">
+        <div class="what-photo-wrap">
+          <div class="what-photo-img"><div></div></div>
+          <div class="what-photo-bg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THERAPY, YOUR WAY -->
+<section id="therapy-way">
+  <div class="container">
+    <div class="therapy-way-header">
+      <h2 class="section-title">Therapy, your way</h2>
+      <p>Both formats offer the same level of care, depth, and confidentiality.</p>
+    </div>
+    <div class="therapy-way-cards">
+      <!-- Online session (LEFT, featured) -->
+      <div class="service-card featured">
+        <span class="service-badge">Most Requested</span>
+        <h3>Online session</h3>
+        <p class="service-desc">Support that fits into your life.</p>
+        <div class="service-price"><strong>RM 300</strong><span>/session</span></div>
+        <ul class="service-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            45–60 minute sessions via secure video
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Attend from home or a space you feel comfortable in
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Flexible for busy or changing schedules
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Stay consistent with support, wherever you are
+          </li>
+        </ul>
+        <a href="booking.html" class="btn-service-primary">Learn more</a>
+      </div>
+      <!-- In-person session (RIGHT, standard) -->
+      <div class="service-card" style="background:#F5F1E6;">
+        <h3>In-person session</h3>
+        <p class="service-desc">A dedicated space to pause and go deeper</p>
+        <div class="service-price"><strong>RM 350</strong><span>/session</span></div>
+        <ul class="service-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            45–60 minute sessions in a quiet, private setting
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Fewer distractions, more space to reflect
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            A clear boundary away from daily stressors
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#9FCFCE" stroke-width="1.5"/><polyline points="5.5,9 7.8,11.5 12.5,6.5" stroke="#9FCFCE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ideal if you prefer a grounded, contained environment
+          </li>
+        </ul>
+        <a href="booking.html" class="btn-service-secondary">Learn more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <div class="container">
+    <div class="quote-banner-inner">
+      <div class="quote-floral">
+        <img src="../images/flower.png" alt="Floral decoration"/>
+      </div>
+      <div class="quote-banner-text">
+        <blockquote>You don't need a diagnosis or a clear label to begin. If something doesn't feel right, that's enough.</blockquote>
+        <p>Start with a session — we'll figure out the rest together.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2>Schedule an initial consultation</h2>
+      <p>If something has been weighing on you, you don't have to work it out alone.</p>
+      <div class="cta-banner-btns">
+        <a href="booking.html" class="btn-cta-primary">
+          Book a Session
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </a>
+        <a href="https://wa.me/601037720560" class="btn-cta-secondary">
+          Talk to someone
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">
+        <img src="../images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
+      </a>
+      <div class="footer-ctas">
+        <a href="https://wa.me/601037720560" class="footer-btn-ghost">WhatsApp us</a>
+        <a href="contactus.html" class="footer-btn-ghost">Contact us</a>
+        <a href="booking.html" class="footer-btn-cta">Book Session</a>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <h5>Contact Info</h5>
+        <div class="footer-contact-items">
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <span>Cheras</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">💬</div>
+            <span>+6 010 377 2056</span>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">✉️</div>
+            <span>therapyandtraining@carynpsychology.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="aboutme.html">Meet Caryn</a></li>
+            <li><a href="index.html#how">How We Work</a></li>
+            <li><a href="index.html#areas">How We Can Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 | Caryn Yeoh Psychology</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  });
+
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  function closeMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+</script>
+</body>
+</html>
