@@ -129,7 +129,11 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .help-card-trauma{background:#C4DFDB;}
 .help-card-life{background:#C8DDC7;}
 .help-card-neuro{background:#FCF9EF;}
-.help-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:.25rem;}
+.help-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:.25rem;}
+.help-card-icon img{width:24px;height:24px;display:block;}
+.help-card-icon-beige{background:#F5F1E6;border:1px solid #E4EAE1;}
+.help-card-icon-blue{background:#E3EEEC;border:1px solid rgba(252,249,239,.3);}
+.help-card-icon-green{background:#E1EAE0;border:1px solid #E4EAE1;}
 .help-card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--text);line-height:1.25;}
 .help-card-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;}
 .help-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
@@ -168,7 +172,7 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .what-happens-photos{display:flex;align-items:center;justify-content:center;}
 .what-photo-wrap{position:relative;width:72%;margin-top:48px;}
 .what-photo-img{position:relative;z-index:2;width:100%;aspect-ratio:.8;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.1);}
-.what-photo-img div{width:100%;height:100%;background:url('images/Therapy - what happens in.png') center/cover no-repeat;}
+.what-photo-img div{width:100%;height:100%;background:url('images/Therapy/Therapy - what happens in.png') center/cover no-repeat;}
 .what-photo-bg{position:absolute;z-index:1;top:-48px;left:48px;width:100%;aspect-ratio:.8;background:#8F7066;border-radius:16px;}
 
 /* ── THERAPY, YOUR WAY ── */
@@ -359,7 +363,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </a>
       </div>
       <div class="how-therapy-img-wrap">
-        <img src="images/Therapy - Hero.png" alt="Therapy" class="how-therapy-real-img"/>
+        <img src="images/Therapy/Therapy - Hero.png" alt="Therapy" class="how-therapy-real-img"/>
       </div>
     </div>
   </div>
@@ -375,9 +379,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <div class="help-cards-grid">
       <!-- Emotional & Mental Wellbeing — white, spans 2 cols -->
       <div class="help-card help-card-emotional">
-        <div class="help-card-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M6 10.5s1 1.5 3 1.5 3-1.5 3-1.5M7 7h.01M11 7h.01"/></svg>
-        </div>
+        <div class="help-card-icon help-card-icon-beige"><img src="images/Icons/Meditation icon.svg" alt=""/></div>
         <h3>Emotional &amp; Mental Wellbeing</h3>
         <ul class="help-card-bullets">
           <li>Anxiety, stress, burnout</li>
@@ -386,9 +388,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       </div>
       <!-- Thought patterns — blue -->
       <div class="help-card help-card-thought">
-        <div class="help-card-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2a5 5 0 0 1 3.5 8.5L13 14H5l.5-3.5A5 5 0 0 1 9 2z"/><line x1="7" y1="16" x2="11" y2="16"/></svg>
-        </div>
+        <div class="help-card-icon help-card-icon-blue"><img src="images/Icons/Puzzle piece icon.svg" alt=""/></div>
         <h3>Thought patterns</h3>
         <ul class="help-card-bullets">
           <li>Overthinking, perfectionism</li>
@@ -397,9 +397,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       </div>
       <!-- Trauma & Regulation — green -->
       <div class="help-card help-card-trauma">
-        <div class="help-card-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2l2 4 4.5.65-3.25 3.17.77 4.47L9 12.1l-4.02 2.19.77-4.47L2.5 6.65 7 6z"/></svg>
-        </div>
+        <div class="help-card-icon help-card-icon-blue"><img src="images/Icons/Head with swirl icon.svg" alt=""/></div>
         <h3>Trauma &amp; Regulation</h3>
         <ul class="help-card-bullets">
           <li>Past experiences affecting you now</li>
@@ -408,9 +406,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       </div>
       <!-- Life & Relationships — white -->
       <div class="help-card help-card-life">
-        <div class="help-card-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l1.5 3 3.5.5-2.5 2.5.6 3.5L9 11l-3.1 1.5.6-3.5L4 6.5 7.5 6z"/></svg>
-        </div>
+        <div class="help-card-icon help-card-icon-green"><img src="images/Icons/Heart icon.svg" alt=""/></div>
         <h3>Life &amp; Relationships</h3>
         <ul class="help-card-bullets">
           <li>Feeling stuck or lost</li>
@@ -419,9 +415,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       </div>
       <!-- Neurodiversity — blue -->
       <div class="help-card help-card-neuro">
-        <div class="help-card-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#633B2E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="10" width="6" height="6" rx="1.5"/><rect x="10" y="10" width="6" height="6" rx="1.5"/></svg>
-        </div>
+        <div class="help-card-icon help-card-icon-beige"><img src="images/Icons/Head with gear icon.svg" alt=""/></div>
         <h3>Neurodiversity</h3>
         <ul class="help-card-bullets">
           <li>Autism or ADHD-related challenges</li>
@@ -438,7 +432,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <div class="our-approach-grid">
       <div class="approach-floral-wrap">
         <div class="approach-blob"></div>
-        <img src="images/therapy%20flower.png" alt="Botanical illustration" class="approach-flower-img"/>
+        <img src="images/Therapy/Therapy - Flower.svg" alt="Botanical illustration" class="approach-flower-img"/>
       </div>
       <div class="approach-text">
         <h2 class="section-title">Our approach</h2>
@@ -568,7 +562,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <div class="container">
     <div class="quote-banner-inner">
       <div class="quote-floral">
-        <img src="images/flower.png" alt="Floral decoration"/>
+        <img src="images/Therapy/Therapy - Flower 2.svg" alt="Floral decoration"/>
       </div>
       <div class="quote-banner-text">
         <blockquote>You don't need a diagnosis or a clear label to begin. If something doesn't feel right, that's enough.</blockquote>

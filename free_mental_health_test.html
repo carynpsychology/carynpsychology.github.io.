@@ -103,19 +103,7 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .fmh-hero-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;}
 .fmh-hero-bullets li{display:flex;align-items:center;gap:.55rem;font-size:.95rem;color:var(--text);font-weight:500;}
 .fmh-hero-img-wrap{display:flex;align-items:center;justify-content:center;}
-.fmh-hero-squircle{
-  width:88%;
-  aspect-ratio:.95;
-  border-radius:48% 52% 45% 55%/55% 45% 55% 45%;
-  overflow:hidden;
-  background:#d8d0c4;
-  border:6px solid rgba(255,255,255,.6);
-  box-shadow:0 8px 48px rgba(0,0,0,.12);
-}
-.fmh-hero-squircle-inner{
-  width:100%;height:100%;
-  background:url('https://placehold.co/560x590') center/cover no-repeat;
-}
+.fmh-hero-real-img{width:100%;height:auto;display:block;}
 
 /* ── AVAILABLE SCREENINGS ── */
 #screenings{background:#EAF0E8;padding:60px 0 100px;margin-top:-1px;}
@@ -156,7 +144,10 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .understanding-card.cream{background:#FCF9EF;}
 .understanding-card.teal{background:#C4DFDB;}
 .understanding-card.green{background:#C8DDC7;}
-.understanding-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.1);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-bottom:.25rem;}
+.understanding-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:.25rem;font-size:1.25rem;}
+.uci-beige{background:#F5F1E6;border:1px solid #E4EAE1;}
+.uci-blue{background:#E3EEEC;border:1px solid rgba(252,249,239,.3);}
+.uci-green{background:#E1EAE0;border:1px solid #E4EAE1;}
 .understanding-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--text);line-height:1.25;}
 .understanding-card p{font-size:.95rem;color:var(--text);line-height:1.7;font-weight:500;}
 .understanding-card ul{list-style:none;padding:0;margin:.25rem 0;display:flex;flex-direction:column;gap:.45rem;}
@@ -314,9 +305,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </ul>
       </div>
       <div class="fmh-hero-img-wrap">
-        <div class="fmh-hero-squircle">
-          <div class="fmh-hero-squircle-inner"></div>
-        </div>
+        <img src="images/Mental Health Test/Mental Health Test - Hero.png" alt="Mental Health Test" class="fmh-hero-real-img"/>
       </div>
     </div>
   </div>
@@ -436,7 +425,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <div class="when-consider-grid">
       <div class="when-consider-img-wrap">
         <div class="when-consider-blob"></div>
-        <img src="images/mentalhealthtest flower.png" alt="Floral illustration" class="when-consider-img"/>
+        <img src="images/Mental Health Test/Mental Health Test - flower.svg" alt="Floral illustration" class="when-consider-img"/>
       </div>
       <div class="when-consider-text">
         <h2 class="section-title">When to consider professional support?</h2>
@@ -465,7 +454,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     </div>
     <div class="understanding-cards">
       <div class="understanding-card cream">
-        <div class="understanding-card-icon">😔</div>
+        <div class="understanding-card-icon uci-beige">🌿</div>
         <h3>Depression &amp; Low Mood</h3>
         <p>Sometimes it's not obvious. It can feel like:</p>
         <ul>
@@ -477,7 +466,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <p>Not always sadness — sometimes just a quiet heaviness that doesn't go away.</p>
       </div>
       <div class="understanding-card teal">
-        <div class="understanding-card-icon">🔋</div>
+        <div class="understanding-card-icon uci-blue">🌙</div>
         <h3>Anxiety &amp; Burnout</h3>
         <p>This often shows up in people who are still functioning — but exhausted.</p>
         <p>You might notice:</p>
@@ -495,7 +484,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </ul>
       </div>
       <div class="understanding-card green">
-        <div class="understanding-card-icon">🔍</div>
+        <div class="understanding-card-icon uci-green">🧠</div>
         <h3>Neurodiversity in Adults (Autism/ADHD)</h3>
         <p>Some people have always felt a little different — without knowing why.</p>
         <p>You might relate to:</p>
@@ -516,7 +505,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <div class="container">
     <div class="quote-callout-inner">
       <div class="quote-callout-floral">
-        <img src="images/flower.png" alt="Botanical illustration"/>
+        <img src="images/Mental Health Test/Mental Health Test - flower2.svg" alt="Botanical illustration"/>
       </div>
       <div class="quote-callout-text">
         <blockquote>If any of this resonates with you, it doesn't mean something is "wrong".</blockquote>

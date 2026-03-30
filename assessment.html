@@ -88,14 +88,17 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw
 #who-for{background:#EAF0E8;padding:80px 0 100px;margin-top:-1px;}
 .who-for-header{margin-bottom:3rem;}
 .who-for-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.who-for-card{background:#FCF9EF;border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .3s,transform .3s;}
-.who-for-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.07);transform:translateY(-4px);}
-.who-for-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.08);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.who-for-card{background:#FCF9EF;border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .3s,transform .3s;cursor:default;overflow:hidden;}
+.who-for-icon{width:44px;height:44px;border-radius:10px;background:#F5F1E6;border:1px solid #E4EAE1;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.who-for-icon img{width:24px;height:24px;display:block;}
 .who-for-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--text);line-height:1.2;}
 .who-for-card p{font-size:.95rem;color:var(--text);line-height:1.75;}
 .who-for-bullets{list-style:none;padding:0;margin:.25rem 0 0;display:flex;flex-direction:column;gap:.45rem;}
 .who-for-bullets li{font-size:.93rem;color:var(--text);line-height:1.6;padding-left:1.2rem;position:relative;}
 .who-for-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
+.who-for-content{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0;}
+.who-for-cards.expanded .who-for-content{max-height:600px;opacity:1;}
+.who-for-cards.expanded .who-for-card{box-shadow:0 12px 40px rgba(0,0,0,.1);transform:translateY(-4px);}
 
 /* ── PROCESS ── */
 #process{background:#F5F1E6;padding:90px 0 100px;}
@@ -110,7 +113,7 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw
 .process-card-bullets li{font-size:.88rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;opacity:.85;}
 .process-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
 .process-img-wrap{position:relative;padding-top:80px;padding-bottom:80px;}
-.process-img-rect{position:relative;z-index:2;width:65%;aspect-ratio:.72;background:url('https://placehold.co/380x530') center/cover no-repeat;border-radius:16px;overflow:hidden;flex-shrink:0;}
+.process-img-rect{position:relative;z-index:2;width:65%;aspect-ratio:.72;background:url('images/Assessment/Assessment - What the process looks like.png') center/cover no-repeat;border-radius:16px;overflow:hidden;flex-shrink:0;}
 .process-img-accent{position:absolute;z-index:1;bottom:0;left:18%;width:65%;aspect-ratio:.72;background:#CFE0E0;border-radius:20px;}
 
 /* ── OUR FEES ── */
@@ -253,38 +256,50 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     </div>
     <div class="who-for-cards">
       <div class="who-for-card">
-        <div class="who-for-icon">😊</div>
+        <div class="who-for-icon"><img src="images/Icons/Child icon.svg" alt=""/></div>
         <h3>Children &amp; Teens</h3>
-        <p>Most assessments are conducted for children and adolescents when there are concerns about development or school functioning.</p>
-        <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">When is an assessment helpful?</p>
-        <ul class="who-for-bullets">
-          <li>Attention, focus, or hyperactivity (e.g. ADHD)</li>
-          <li>Social or communication differences (e.g. autism)</li>
-          <li>Learning or developmental delays</li>
-          <li>Ongoing challenges in school</li>
-        </ul>
-        <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">What the assessment may include</p>
-        <ul class="who-for-bullets">
-          <li>Cognitive (IQ) testing</li>
-          <li>Behavioural and developmental measures (e.g. Conners, GARS, Vineland)</li>
-          <li>Clinical evaluation to understand your child's profile</li>
-        </ul>
-        <p style="margin-top:.75rem;">The goal is to provide a clear understanding and guide appropriate support.</p>
+        <div class="who-for-content">
+          <p>Most assessments are conducted for children and adolescents when there are concerns about development or school functioning.</p>
+          <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">When is an assessment helpful?</p>
+          <ul class="who-for-bullets">
+            <li>Attention, focus, or hyperactivity (e.g. ADHD)</li>
+            <li>Social or communication differences (e.g. autism)</li>
+            <li>Learning or developmental delays</li>
+            <li>Ongoing challenges in school</li>
+          </ul>
+          <p style="font-size:.88rem;font-weight:600;margin-top:.75rem;margin-bottom:.25rem;">What the assessment may include</p>
+          <ul class="who-for-bullets">
+            <li>Cognitive (IQ) testing</li>
+            <li>Behavioural and developmental measures (e.g. Conners, GARS, Vineland)</li>
+            <li>Clinical evaluation to understand your child's profile</li>
+          </ul>
+          <p style="margin-top:.75rem;">The goal is to provide a clear understanding and guide appropriate support.</p>
+        </div>
       </div>
       <div class="who-for-card">
-        <div class="who-for-icon">☺️</div>
+        <div class="who-for-icon"><img src="images/Icons/Smile face icon.svg" alt=""/></div>
         <h3>Adults</h3>
-        <p>For adults, assessments may be helpful in understanding:</p>
-        <ul class="who-for-bullets">
-          <li>Attention-related concerns (e.g. ADHD)</li>
-          <li>Autism or long-standing social differences</li>
-          <li>Patterns that have affected functioning over time</li>
-        </ul>
-        <p style="margin-top:.75rem;">You may not always require a formal assessment. In some cases, these concerns can also be explored through therapy.</p>
+        <div class="who-for-content">
+          <p>For adults, assessments may be helpful in understanding:</p>
+          <ul class="who-for-bullets">
+            <li>Attention-related concerns (e.g. ADHD)</li>
+            <li>Autism or long-standing social differences</li>
+            <li>Patterns that have affected functioning over time</li>
+          </ul>
+          <p style="margin-top:.75rem;">You may not always require a formal assessment. In some cases, these concerns can also be explored through therapy.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var container=document.querySelector('.who-for-cards');
+  if(!container)return;
+  container.addEventListener('mouseenter',function(){container.classList.add('expanded');});
+  container.addEventListener('mouseleave',function(){container.classList.remove('expanded');});
+})();
+</script>
 
 <!-- WHAT THE PROCESS LOOKS LIKE -->
 <section id="process">

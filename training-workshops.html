@@ -75,8 +75,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;hei
 .practical-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4rem);font-weight:500;color:var(--text);line-height:1.2;margin-bottom:1.2rem;}
 .practical-text p{font-size:1.1rem;color:var(--text);line-height:1.85;margin-bottom:1.6rem;}
 .practical-img-wrap{display:flex;align-items:center;justify-content:center;}
-.practical-img{width:82%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#d8cfc8;box-shadow:0 8px 40px rgba(0,0,0,.1);}
-.practical-img-inner{width:100%;height:100%;background:url('https://placehold.co/480x480') center/cover no-repeat;}
+.practical-hero-img{width:100%;height:auto;display:block;}
 
 /* ── WHO WE SUPPORT ── */
 #who-support{background:var(--bg1);padding:90px 0 100px;}
@@ -88,7 +87,11 @@ nav .container{display:flex;align-items:center;justify-content:space-between;hei
 .who-card-1{background:#F5F1E6;}
 .who-card-2{background:#C4DFDB;}
 .who-card-3{background:#C8DDC7;}
-.who-card-icon{width:36px;height:36px;border-radius:10px;background:rgba(99,59,46,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.who-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.who-card-icon img{width:24px;height:24px;display:block;}
+.wci-beige{background:#FCF9EF;border:1px solid #E4EAE1;}
+.wci-blue{background:#E3EEEC;border:1px solid rgba(252,249,239,.3);}
+.wci-green{background:#E1EAE0;border:1px solid #E4EAE1;}
 .who-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--text);margin-bottom:.75rem;line-height:1.25;}
 .who-card-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem;}
 .who-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.1rem;position:relative;font-weight:500;}
@@ -108,7 +111,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;hei
 .training-photos{display:flex;align-items:center;justify-content:center;}
 .training-photo-wrap{position:relative;width:72%;margin-top:48px;}
 .training-photo-img{position:relative;z-index:2;width:100%;aspect-ratio:.8;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.1);}
-.training-photo-img div{width:100%;height:100%;background:url('images/Therapy - what happens in.png') center/cover no-repeat;}
+.training-photo-img div{width:100%;height:100%;background:url('images/Training & Workshops/Training & Workshop - Training areas.png') center/cover no-repeat;}
 .training-photo-bg{position:absolute;z-index:1;top:-48px;left:48px;width:100%;aspect-ratio:.8;background:#8F7066;border-radius:16px;}
 
 /* ── WHAT TO EXPECT ── */
@@ -264,9 +267,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <a href="contactus.html" class="btn-primary">Send an Enquiry →</a>
       </div>
       <div class="practical-img-wrap">
-        <div class="practical-img">
-          <div class="practical-img-inner"></div>
-        </div>
+        <img src="images/Training & Workshops/Training & Workshop - Hero.png" alt="Training & Workshops" class="practical-hero-img"/>
       </div>
     </div>
   </div>
@@ -280,9 +281,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     </div>
     <div class="who-cards">
       <div class="who-card who-card-1">
-        <div class="who-card-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        </div>
+        <div class="who-card-icon wci-beige"><img src="images/Icons/Meditation icon.svg" alt=""/></div>
         <h3>Educators</h3>
         <ul class="who-card-bullets">
           <li>Managing behaviour, attention, and emotional regulation in the classroom</li>
@@ -290,9 +289,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </ul>
       </div>
       <div class="who-card who-card-2">
-        <div class="who-card-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
+        <div class="who-card-icon wci-blue"><img src="images/Icons/Heart icon.svg" alt=""/></div>
         <h3>Parents of neurodiverse children</h3>
         <ul class="who-card-bullets">
           <li>Understanding your child's behaviour, emotions, and needs</li>
@@ -300,9 +297,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </ul>
       </div>
       <div class="who-card who-card-3">
-        <div class="who-card-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
+        <div class="who-card-icon wci-green"><img src="images/Icons/Head with gear icon.svg" alt=""/></div>
         <h3>Schools, institutions, and organisations</h3>
         <ul class="who-card-bullets">
           <li>Building inclusive environments for neurodiverse individuals</li>
@@ -359,7 +354,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       <div class="expect-floral">
         <div class="expect-floral-wrap">
           <div class="expect-blob"></div>
-          <img src="images/training flower.png" alt="" role="presentation" class="expect-floral-img"/>
+          <img src="images/Training & Workshops/Training & Workshop - Flower.svg" alt="" role="presentation" class="expect-floral-img"/>
         </div>
       </div>
       <div class="expect-text">
@@ -403,7 +398,10 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
           <li>Team experience level</li>
           <li>Specific challenges and goals</li>
         </ul>
-        <a href="contactus.html" class="btn-primary" style="margin-top:.8rem;">Contact us</a>
+        <div class="customised-btns">
+          <a href="booking.html" class="btn-cta-primary">Book a Session</a>
+          <a href="contactus.html" class="btn-cta-secondary">Talk to someone</a>
+        </div>
       </div>
     </div>
   </div>
