@@ -41,7 +41,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .nav-logo img{mix-blend-mode:multiply;}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
 .nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
-.nav-links a:hover{color:var(--charcoal);}
+.nav-links a:hover{color:var(--charcoal);}.nav-active{color:#9FCFCE!important;font-weight:700;}
 .nav-dropdown{position:relative;}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
 .nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
@@ -51,7 +51,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
 .nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
 .nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
-.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;background:#FCF9EF;border:1.5px solid #9FCFCE;padding:.45rem 1.2rem;border-radius:100px;transition:background .25s,border-color .25s;}.nav-free:hover{background:#EAF0E8;border-color:#68BAB8;}
 .nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
 .nav-cta:hover{background:#7db8b7!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
@@ -70,9 +70,9 @@ section{padding:100px 0;}
 .section-wave-bottom svg{display:block;width:100%;}
 
 /* ── BUTTONS ── */
-.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;transition:background .25s;}
 .btn-cta-primary:hover{background:#68BAB8;}
-.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s,border-color .25s;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s,border-color .25s;}
 .btn-cta-secondary:hover{background:#EAF0E8;border-color:#68BAB8;}
 
 /* ── HERO ── */
@@ -99,6 +99,10 @@ section{padding:100px 0;}
 
 /* ── HERO PHOTO ── */
 .about-hero-photo-wrap{display:flex;align-items:center;justify-content:center;}
+.about-hero-img-frame{
+  display:inline-block;
+  line-height:0;
+}
 .about-hero-img{
   width:100%;
   height:auto;
@@ -128,14 +132,16 @@ section{padding:100px 0;}
   margin-bottom:1.1rem;
   display:flex;
   align-items:center;
-  gap:.5rem;
+  gap:.75rem;
 }
+.cred-label-icon{width:44px;height:44px;border-radius:10px;background:#FCF9EF;border:1px solid #E4EAE1;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cred-label-icon img{width:24px;height:24px;display:block;}
 .cred-entry{margin-bottom:.8rem;}
 .cred-entry:last-child{margin-bottom:0;}
 .cred-entry-title{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
-.cred-entry-sub{font-size:.88rem;font-weight:500;color:var(--text);opacity:.75;padding-left:.8rem;position:relative;}
+.cred-entry-sub{font-size:1rem;font-weight:500;color:var(--text);opacity:.75;padding-left:.8rem;position:relative;}
 .cred-entry-sub::before{content:'•';position:absolute;left:0;opacity:.6;}
-.cred-bullet{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.6;padding-left:.8rem;position:relative;margin-bottom:.4rem;}
+.cred-bullet{font-size:1rem;font-weight:500;color:var(--text);line-height:1.6;padding-left:.8rem;position:relative;margin-bottom:.4rem;}
 .cred-bullet:last-child{margin-bottom:0;}
 .cred-bullet::before{content:'•';position:absolute;left:0;opacity:.6;}
 
@@ -181,7 +187,7 @@ section{padding:100px 0;}
   margin-bottom:1.4rem;
 }
 .about-path-text p{
-  font-size:.99rem;
+  font-size:1.115rem;
   color:var(--text);
   line-height:1.85;
   font-weight:500;
@@ -208,7 +214,7 @@ section{padding:100px 0;}
   margin-bottom:1.6rem;
 }
 .about-many-text p{
-  font-size:.99rem;
+  font-size:1.115rem;
   color:var(--text);
   line-height:1.85;
   font-weight:500;
@@ -253,26 +259,26 @@ section{padding:100px 0;}
 .quote-floral img{width:100%;height:auto;display:block;}
 .quote-banner-text{flex:1;}
 .quote-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
-.quote-banner p{font-size:.95rem;color:var(--mid);line-height:1.7;font-weight:500;}
+.quote-banner p{font-size:1.075rem;color:var(--mid);line-height:1.7;font-weight:500;}
 
 /* ── BIO SECTION ── */
 #about-bio{background:rgba(159,207,206,.2);padding:64px 0 72px;}
 .about-bio-grid{display:grid;grid-template-columns:0.7fr 1.5fr;gap:64px;align-items:center;}
 .about-bio-photo{width:100%;aspect-ratio:.78;border-radius:16px;overflow:hidden;background:#c9b8ae;box-shadow:0 4px 24px rgba(0,0,0,.08);}
 .about-bio-photo-inner{width:100%;height:100%;background:url('images/About me/About me - bottom section.png') center/cover no-repeat;}
-.about-bio-text p{font-size:1.1rem;color:var(--text);line-height:1.85;font-weight:500;}
+.about-bio-text p{font-size:1.225rem;color:var(--text);line-height:1.85;font-weight:500;}
 
 /* ── CTA BANNER ── */
 .cta-banner{background:rgba(159,207,206,.2);padding:60px 0;text-align:center;}
 .cta-banner-inner{
-  background:#ECE2DA;border-radius:40px;padding:70px 8%;
+  background:#F5F1E6;border-radius:40px;padding:70px 8%;box-shadow:0 8px 40px rgba(0,0,0,.08);
   position:relative;overflow:hidden;
 }
 .cta-banner-inner::before{
   content:'';position:absolute;
   width:200px;height:220px;
   border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;
-  background:rgba(168,142,130,.55);
+  background:#D3BFB9;
   left:-65px;top:50%;transform:translateY(-50%);
   pointer-events:none;
 }
@@ -280,12 +286,12 @@ section{padding:100px 0;}
   content:'';position:absolute;
   width:115px;height:125px;
   border-radius:45% 55% 60% 40% / 52% 48% 55% 45%;
-  background:rgba(168,142,130,.45);
+  background:#D3BFB9;
   right:-35px;bottom:-35px;
   pointer-events:none;
 }
 .cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
-.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;font-weight:500;}
+.cta-banner p{font-size:1.115rem;color:var(--text);opacity:.75;margin-bottom:2rem;font-weight:500;}
 .cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
 
 /* ── FOOTER ── */
@@ -293,7 +299,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 .footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
 .footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
 .footer-logo img{width:34px;height:34px;object-fit:contain;}
-.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.225rem;color:rgba(255,255,255,.9);}
 .footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
 .footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
 .footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
@@ -304,13 +310,13 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 .footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
 .footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
 .footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
-.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-contact-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.footer-contact-icon img{width:20px;height:20px;display:block;filter:brightness(0) invert(1);opacity:.7;}
 .footer-cols{display:flex;gap:4rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
 .footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
 .footer-col ul a:hover{color:rgba(255,255,255,.9);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
-.footer-social{display:flex;gap:.8rem;}
+.footer-social{display:flex;gap:.8rem;margin-left:auto;}
 .footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
 .footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
 
@@ -318,20 +324,25 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 @media(max-width:960px){
   .about-hero-grid,.about-path-grid,.about-many-grid{grid-template-columns:1fr;gap:40px;}
   .about-hero-photo-wrap{order:-1;}
-  .about-hero-img,.about-many-rect{width:70%;}
+  .about-hero-img,.about-many-rect{width:65%;margin:0 auto;display:block;}
+  .about-hero-creds{grid-template-columns:1fr 1fr;}
   .footer-main{grid-template-columns:1fr;gap:2rem;}
   .footer-cols{gap:2rem;}
 }
 @media(max-width:680px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  section{padding:70px 0;}
+  section{padding:60px 0;}
   .container{padding:0 16px;}
   .about-hero-creds{grid-template-columns:1fr;}
-  .about-hero-img,.about-many-squircle{width:90%;}
+  .about-hero-img,.about-many-squircle,.about-many-rect{width:85%;}
+  .cta-banner-inner{padding:50px 6%;}
+  .cta-banner-btns{flex-direction:column;align-items:center;}
   .footer-cols{flex-direction:column;gap:1.5rem;}
-  .footer-ctas{gap:.5rem;}
+  .footer-ctas{gap:.5rem;flex-wrap:wrap;}
   .quote-banner-inner{flex-direction:column;gap:1.5rem;text-align:center;}
+  .quote-floral{width:80px;}
+  h2.section-title{font-size:clamp(1.6rem,5vw,2.2rem);}
 }
 </style>
 </head>
@@ -356,7 +367,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
           </div>
         </div>
       </li>
-      <li><a href="aboutme.html" style="color:var(--text);font-weight:700;">About</a></li>
+      <li><a href="aboutme.html" class="nav-active">About</a></li>
       <li><a href="contactus.html">Contact</a></li>
       <li><a href="free_mental_health_test.html" class="nav-free">Free Mental Health Test</a></li>
       <li><a href="booking.html" class="nav-cta">Book Session</a></li>
@@ -382,12 +393,14 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h1 class="about-hero-h1">Meet <em>Caryn Yeoh</em>,<br>your clinical<br>psychologist.</h1>
       </div>
       <div class="about-hero-photo-wrap">
-        <img src="images/About me/About me - Hero Image.png" alt="Caryn Yeoh" class="about-hero-img"/>
+        <div class="about-hero-img-frame">
+          <img src="images/About me/About me - Hero Image.png" alt="Caryn Yeoh" class="about-hero-img"/>
+        </div>
       </div>
     </div>
     <div class="about-hero-creds">
       <div class="cred-card">
-        <div class="cred-card-label">🎓 Education</div>
+        <div class="cred-card-label"><div class="cred-label-icon"><img src="images/Icons/Graduation hat icon.svg" alt=""/></div>Education</div>
         <div class="cred-entry">
           <div class="cred-entry-title">Bachelor of Arts Psychology (Hons.)</div>
           <div class="cred-entry-sub">International Medical University</div>
@@ -398,7 +411,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </div>
       </div>
       <div class="cred-card">
-        <div class="cred-card-label">💼 Professional Affiliations</div>
+        <div class="cred-card-label"><div class="cred-label-icon"><img src="images/Icons/Briefcase icon.svg" alt=""/></div>Professional Affiliations</div>
         <div class="cred-bullet">Malaysian Allied Health Professions Council MAHPC (CP) 00465</div>
         <div class="cred-bullet">Malaysian Society of Clinical Psychology CP1 - 0309</div>
       </div>
@@ -500,7 +513,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <div class="container">
     <div class="footer-top">
       <a href="index.html" class="footer-logo">
-        <img src="images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <img src="images/CY_Logo(white background).png" alt="Caryn Yeoh Psychology"/>
         <span>Caryn Yeoh Psychology</span>
       </a>
       <div class="footer-ctas">
@@ -515,15 +528,15 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h5>Contact Info</h5>
         <div class="footer-contact-items">
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">📍</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt=""/></div>
             <span>Cheras</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">💬</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt=""/></div>
             <span>+6 010 377 2056</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">✉️</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt=""/></div>
             <span>therapyandtraining@carynpsychology.com</span>
           </div>
         </div>
@@ -541,8 +554,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
           <h5>About</h5>
           <ul>
             <li><a href="aboutme.html">Meet Caryn</a></li>
-            <li><a href="index.html#how">How We Work</a></li>
-            <li><a href="index.html#areas">How We Can Help</a></li>
+            <li><a href="index.html#how">What To Expect</a></li>
+            <li><a href="index.html#areas">How We Can Support You</a></li>
           </ul>
         </div>
       </div>
@@ -555,10 +568,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <a href="#" aria-label="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="#" aria-label="Share">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-        </a>
-      </div>
+        </div>
     </div>
   </div>
 </footer>

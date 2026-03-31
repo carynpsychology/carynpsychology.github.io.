@@ -45,7 +45,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .nav-logo img{mix-blend-mode:multiply;}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
 .nav-links a{font-size:.88rem;letter-spacing:.02em;text-decoration:none;color:var(--mid);transition:color .2s;}
-.nav-links a:hover{color:var(--charcoal);}
+.nav-links a:hover{color:var(--charcoal);}.nav-active{color:#9FCFCE!important;font-weight:700;}
 .nav-dropdown{position:relative;}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:.3rem;}
 .nav-dropdown>a svg{transition:transform .2s;flex-shrink:0;}
@@ -55,7 +55,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
 .nav-dropdown-menu-inner a{display:block;padding:.6rem 1rem;font-size:.85rem;color:var(--mid);text-decoration:none;border-radius:10px;white-space:nowrap;transition:background .15s,color .15s;}
 .nav-dropdown-menu-inner a:hover{background:rgba(159,207,206,.15);color:var(--text);}
-.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;border:1.5px solid var(--primary);padding:.45rem 1.2rem;border-radius:100px;transition:all .2s;}.nav-free:hover{background:var(--primary);color:var(--text);}
+.nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;background:#FCF9EF;border:1.5px solid #9FCFCE;padding:.45rem 1.2rem;border-radius:100px;transition:background .25s,border-color .25s;}.nav-free:hover{background:#EAF0E8;border-color:#68BAB8;}
 .nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
 .nav-cta:hover{background:#7db8b7!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
@@ -73,10 +73,10 @@ section{padding:100px 0;}
 .section-eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--text);opacity:.7;margin-bottom:1rem;}
 h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;line-height:1.2;color:var(--charcoal);margin-bottom:1rem;}
 h2.section-title em{font-style:italic;color:var(--primary);}
-.section-sub{color:var(--mid);max-width:520px;line-height:1.85;font-size:0.99rem;margin-bottom:2rem;}
-.btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
+.section-sub{color:var(--mid);max-width:520px;line-height:1.85;font-size:1.115rem;margin-bottom:2rem;}
+.btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:1.115rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
 .btn-primary:hover{background:#7db8b7;transform:translateY(-2px);}
-.btn-ghost{border:1.5px solid var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:0.99rem;font-weight:700;transition:all .25s;display:inline-block;}
+.btn-ghost{border:1.5px solid var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:1.115rem;font-weight:700;transition:all .25s;display:inline-block;}
 .btn-ghost:hover{background:rgba(159,207,206,.15);}
 
 /* ── SECTION TRANSITION WAVES ── */
@@ -99,16 +99,16 @@ h2.section-title em{font-style:italic;color:var(--primary);}
   line-height:1.05;
   margin-bottom:1.2rem;
 }
-.therapy-hero-subtitle{font-size:1rem;color:var(--mid);line-height:1.7;max-width:680px;margin:0 auto;}
+.therapy-hero-subtitle{font-size:1.125rem;color:var(--mid);line-height:1.7;max-width:680px;margin:0 auto;}
 
 /* ── HOW THERAPY WORKS ── */
 #how-therapy{background:#EAF0E8;padding:50px 0 100px;margin-top:-1px;}
 .how-therapy-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .how-therapy-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.2rem;line-height:1.2;}
-.how-therapy-text p{font-size:.99rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
-.how-therapy-label{font-size:.99rem;font-weight:700;color:var(--text);display:block;margin:1rem 0 .45rem;}
+.how-therapy-text p{font-size:1.115rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
+.how-therapy-label{font-size:1.115rem;font-weight:700;color:var(--text);display:block;margin:1rem 0 .45rem;}
 .how-therapy-bullets{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.4rem;}
-.how-therapy-bullets li{font-size:.95rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;}
+.how-therapy-bullets li{font-size:1.075rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;}
 .how-therapy-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.7;}
 .how-therapy-img-wrap{display:flex;align-items:center;justify-content:center;}
 .how-therapy-real-img{
@@ -136,7 +136,7 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .help-card-icon-green{background:#E1EAE0;border:1px solid #E4EAE1;}
 .help-card h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--text);line-height:1.25;}
 .help-card-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;}
-.help-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
+.help-card-bullets li{font-size:1.025rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
 .help-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
 
 /* ── OUR APPROACH ── */
@@ -153,9 +153,9 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 }
 .approach-flower-img{position:relative;z-index:1;width:75%;max-width:270px;display:block;margin:0 auto;}
 .approach-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:1.2rem;line-height:1.2;}
-.approach-text p{font-size:.95rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
+.approach-text p{font-size:1.075rem;color:var(--text);line-height:1.85;margin-bottom:.9rem;}
 .approach-list{list-style:none;margin:.5rem 0 1rem;display:flex;flex-direction:column;gap:.6rem;}
-.approach-list li{font-size:.93rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;}
+.approach-list li{font-size:1.055rem;color:var(--text);line-height:1.6;padding-left:1.1rem;position:relative;}
 .approach-list li::before{content:'•';position:absolute;left:0;color:var(--text);}
 
 /* ── WHAT HAPPENS IN THERAPY ── */
@@ -166,7 +166,7 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .what-happens-card{background:#F5F1E6;border-radius:24px;padding:28px 32px;}
 .what-happens-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.25;}
 .what-card-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;}
-.what-card-bullets li{font-size:.9rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
+.what-card-bullets li{font-size:1.025rem;color:var(--text);line-height:1.65;padding-left:1.2rem;position:relative;font-weight:500;}
 .what-card-bullets li::before{content:'•';position:absolute;left:0;color:var(--text);opacity:.6;}
 /* single photo with offset */
 .what-happens-photos{display:flex;align-items:center;justify-content:center;}
@@ -179,7 +179,7 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 #therapy-way{background:#FCF9EF;padding:90px 0 100px;}
 .therapy-way-header{margin-bottom:3rem;}
 .therapy-way-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2;}
-.therapy-way-header p{font-size:.99rem;color:var(--mid);line-height:1.85;max-width:560px;}
+.therapy-way-header p{font-size:1.115rem;color:var(--mid);line-height:1.85;max-width:560px;}
 .therapy-way-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 /* service card styles (shared with index.html) */
 .service-card{background:#FCF9EF;border-radius:40px;padding:40px;border:1.5px solid rgba(0,0,0,.07);transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column;gap:0;}
@@ -187,16 +187,16 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .service-card.featured{border:1.5px solid var(--primary);background:rgba(159,207,206,.2);position:relative;overflow:visible;}
 .service-badge{font-family:'Quicksand',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFFFF;background:var(--primary);border-radius:100px;padding:.3rem .9rem;position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;}
 .service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:500;color:var(--text);margin-bottom:.75rem;line-height:1.2;}
-.service-card>.service-desc{font-family:'Quicksand',sans-serif;font-size:1rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;}
+.service-card>.service-desc{font-family:'Quicksand',sans-serif;font-size:1.125rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;}
 .service-price{font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;}
 .service-price strong{font-size:2rem;font-weight:700;line-height:1;color:var(--primary);}
 .service-price span{font-size:.85rem;font-weight:500;color:var(--text);opacity:.75;margin-left:.2rem;}
 .service-bullets{list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:.55rem;flex:1;}
-.service-bullets li{display:flex;align-items:center;gap:.55rem;font-family:'Quicksand',sans-serif;font-size:.95rem;color:var(--text);}
+.service-bullets li{display:flex;align-items:center;gap:.55rem;font-family:'Quicksand',sans-serif;font-size:1.075rem;color:var(--text);}
 .service-bullets li svg{flex-shrink:0;}
-.btn-service-primary{display:block;width:100%;text-align:center;background:var(--primary);color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s,color .25s;margin-top:auto;border:none;cursor:pointer;}
+.btn-service-primary{display:block;width:100%;text-align:center;background:var(--primary);color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;transition:background .25s,color .25s;margin-top:auto;border:none;cursor:pointer;}
 .btn-service-primary:hover{background:#68BAB8;color:#5C3427;}
-.btn-service-secondary{display:block;width:100%;text-align:center;background:#FCF9EF;color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s,border-color .25s;margin-top:auto;border:1.5px solid var(--primary);cursor:pointer;}
+.btn-service-secondary{display:block;width:100%;text-align:center;background:#FCF9EF;color:var(--text);padding:1rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;transition:background .25s,border-color .25s;margin-top:auto;border:1.5px solid var(--primary);cursor:pointer;}
 .btn-service-secondary:hover{background:#EAF0E8;border-color:#68BAB8;}
 
 /* ── QUOTE BANNER ── */
@@ -206,12 +206,12 @@ h2.section-title em{font-style:italic;color:var(--primary);}
 .quote-floral img{width:100%;height:auto;display:block;}
 .quote-banner-text{flex:1;}
 .quote-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:500;line-height:1.3;color:var(--text);margin-bottom:.9rem;}
-.quote-banner p{font-size:.95rem;color:var(--mid);line-height:1.7;}
+.quote-banner p{font-size:1.075rem;color:var(--mid);line-height:1.7;}
 
 /* ── CTA BANNER ── */
 .cta-banner{background:#F5F1E6;padding:60px 0;text-align:center;}
 .cta-banner-inner{
-  background:#ECE2DA;border-radius:40px;padding:70px 8%;
+  background:#ECE2DA;border-radius:40px;padding:70px 8%;box-shadow:0 8px 40px rgba(0,0,0,.08);
   position:relative;overflow:hidden;
 }
 .cta-banner-inner::before{
@@ -231,11 +231,11 @@ h2.section-title em{font-style:italic;color:var(--primary);}
   pointer-events:none;
 }
 .cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:1rem;}
-.cta-banner p{font-size:0.99rem;color:var(--text);opacity:.75;margin-bottom:2rem;}
+.cta-banner p{font-size:1.115rem;color:var(--text);opacity:.75;margin-bottom:2rem;}
 .cta-banner-btns{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
-.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;transition:background .25s;}
+.btn-cta-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;transition:background .25s;}
 .btn-cta-primary:hover{background:#68BAB8;}
-.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
+.btn-cta-secondary{display:inline-flex;align-items:center;gap:.5rem;background:#FCF9EF;color:var(--text);padding:.9rem 2rem;border-radius:100px;text-decoration:none;font-family:'Quicksand',sans-serif;font-size:1.075rem;font-weight:700;border:1.5px solid var(--primary);transition:background .25s;}
 .btn-cta-secondary:hover{background:#EAF0E8;}
 
 /* ── FOOTER ── */
@@ -243,7 +243,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 .footer-top{display:flex;align-items:center;justify-content:space-between;padding:2rem 0 1.8rem;flex-wrap:wrap;gap:1rem;}
 .footer-logo{text-decoration:none;display:flex;align-items:center;gap:.65rem;}
 .footer-logo img{width:34px;height:34px;object-fit:contain;}
-.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,.9);}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:1.225rem;color:rgba(255,255,255,.9);}
 .footer-ctas{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
 .footer-btn-ghost{font-size:.82rem;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.45rem 1.2rem;text-decoration:none;transition:border-color .2s,color .2s;}
 .footer-btn-ghost:hover{border-color:rgba(255,255,255,.7);color:#fff;}
@@ -254,13 +254,13 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 .footer-contact h5,.footer-col h5{font-size:0.715rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.2rem;}
 .footer-contact-items{display:flex;flex-direction:column;gap:.8rem;}
 .footer-contact-item{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:rgba(255,255,255,.55);}
-.footer-contact-icon{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;}
+.footer-contact-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.footer-contact-icon img{width:20px;height:20px;display:block;filter:brightness(0) invert(1);opacity:.7;}
 .footer-cols{display:flex;gap:4rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
 .footer-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;transition:color .2s;}
 .footer-col ul a:hover{color:rgba(255,255,255,.9);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;font-size:0.715rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;}
-.footer-social{display:flex;gap:.8rem;}
+.footer-social{display:flex;gap:.8rem;margin-left:auto;}
 .footer-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:border-color .2s,color .2s;}
 .footer-social a:hover{border-color:rgba(255,255,255,.6);color:#fff;}
 
@@ -270,7 +270,9 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   .approach-floral-wrap{order:-1;}
   .approach-flower-img{max-width:200px;}
   .what-happens-photos{grid-template-columns:1fr 1fr;padding-top:0;}
+  .what-photo-wrap{width:100%;margin-top:0;}
   .help-cards-grid{grid-template-columns:1fr 1fr;}
+  .help-card-emotional{grid-column:1/3;}
   .therapy-way-cards{grid-template-columns:1fr;}
   .footer-main{grid-template-columns:1fr;gap:2rem;}
   .footer-cols{gap:2rem;}
@@ -278,12 +280,17 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 @media(max-width:680px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  section{padding:70px 0;}
+  section{padding:60px 0;}
   .container{padding:0 16px;}
   .help-cards-grid{grid-template-columns:1fr;}
+  .help-card-emotional{grid-column:1;}
+  .what-happens-photos{grid-template-columns:1fr;}
+  .cta-banner-inner{padding:50px 6%;}
   .footer-cols{flex-direction:column;gap:1.5rem;}
-  .footer-ctas{gap:.5rem;}
+  .footer-ctas{gap:.5rem;flex-wrap:wrap;}
   .quote-banner-inner{flex-direction:column;gap:1.5rem;text-align:center;}
+  .quote-floral{width:80px;}
+  h2.section-title{font-size:clamp(1.6rem,5vw,2.2rem);}
 }
 </style>
 </head>
@@ -299,7 +306,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li class="nav-dropdown">
-        <a href="therapy.html" style="color:var(--text);font-weight:700;">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="therapy.html" class="nav-active">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="therapy.html">Individual Therapy</a>
@@ -474,7 +481,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
           </div>
           <div class="what-happens-card">
             <h3>Ongoing Sessions (45 – 60 mins)</h3>
-            <p style="font-size:.9rem;color:var(--text);line-height:1.75;margin-bottom:.5rem;margin-top:.2rem;">We work together to:</p>
+            <p style="font-size:1.025rem;color:var(--text);line-height:1.75;margin-bottom:.5rem;margin-top:.2rem;">We work together to:</p>
             <ul class="what-card-bullets">
               <li>Understand patterns and underlying causes</li>
               <li>Make sense of emotions and reactions</li>
@@ -597,7 +604,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <div class="container">
     <div class="footer-top">
       <a href="index.html" class="footer-logo">
-        <img src="images/CY_Logo.png" alt="Caryn Yeoh Psychology"/>
+        <img src="images/CY_Logo(white background).png" alt="Caryn Yeoh Psychology"/>
         <span>Caryn Yeoh Psychology</span>
       </a>
       <div class="footer-ctas">
@@ -612,15 +619,15 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h5>Contact Info</h5>
         <div class="footer-contact-items">
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">📍</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt=""/></div>
             <span>Cheras</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">💬</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt=""/></div>
             <span>+6 010 377 2056</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon">✉️</div>
+            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt=""/></div>
             <span>therapyandtraining@carynpsychology.com</span>
           </div>
         </div>
@@ -638,8 +645,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
           <h5>About</h5>
           <ul>
             <li><a href="aboutme.html">Meet Caryn</a></li>
-            <li><a href="index.html#how">How We Work</a></li>
-            <li><a href="index.html#areas">How We Can Help</a></li>
+            <li><a href="index.html#how">What To Expect</a></li>
+            <li><a href="index.html#areas">How We Can Support You</a></li>
           </ul>
         </div>
       </div>
@@ -652,10 +659,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <a href="#" aria-label="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="#" aria-label="Share">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-        </a>
-      </div>
+        </div>
     </div>
   </div>
 </footer>
