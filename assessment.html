@@ -20,9 +20,10 @@
   --charcoal: #633B2E;
   --forest: #464646;
   --nav-h: 68px;
+  --cream: #FCF9EF;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:'Quicksand',sans-serif;background:var(--bg1);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:700;}
 
 /* ── NAV ── */
@@ -45,10 +46,15 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .nav-free{font-size:.82rem;text-decoration:none;color:var(--text);font-weight:700;background:#FCF9EF;border:1.5px solid #9FCFCE;padding:.45rem 1.2rem;border-radius:100px;transition:background .25s,border-color .25s;}.nav-free:hover{background:#EAF0E8;border-color:#68BAB8;}
 .nav-cta{background:var(--primary)!important;color:var(--text)!important;padding:.5rem 1.4rem;border-radius:100px;font-size:.78rem;letter-spacing:.08em;text-transform:none;}
 .nav-cta:hover{background:#7db8b7!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;line-height:0;flex-shrink:0;align-self:center;}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);}
 .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg1);z-index:998;padding:2.5rem 24px;flex-direction:column;gap:1.5rem;}
 .mobile-menu.open{display:flex;}
+.mobile-services-toggle{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);border-bottom:1px solid var(--light);padding-bottom:1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+.mobile-services-toggle svg{transition:transform .25s;flex-shrink:0;}
+.mobile-services-sub{display:none;flex-direction:column;gap:.4rem;padding:.6rem 0 1rem 1.2rem;border-bottom:1px solid var(--light);}
+.mobile-services-sub.open{display:flex;}
+.mobile-services-sub a{font-size:1.3rem!important;border-bottom:none!important;padding-bottom:0!important;}
 .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--light);padding-bottom:1rem;}
 
 /* ── CONTAINER ── */
@@ -192,6 +198,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   .footer-cols{gap:2rem;}
 }
 @media(max-width:680px){
+  .nav-logo span,.nav-logo-text{display:none;}
+  .nav-logo img{width:32px;height:32px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
   section{padding:60px 0;}
@@ -209,10 +217,10 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;height:100%;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:100%;">
     <a href="index.html" class="nav-logo">
       <img src="images/CY_Logo(white background).png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>
-      Caryn Yeoh Psychology
+      <span class="nav-logo-text">Caryn Yeoh Psychology</span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -238,9 +246,15 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="therapy.html" onclick="closeMenu()">Services</a>
+  <div class="mobile-services-toggle" id="mobileServicesToggle" onclick="toggleMobileServices()">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+  <div class="mobile-services-sub" id="mobileServicesSub">
+    <a href="therapy.html" onclick="closeMenu()">Individual Therapy</a>
+    <a href="assessment.html" onclick="closeMenu()">Assessment</a>
+    <a href="training-workshops.html" onclick="closeMenu()">Training &amp; Workshops</a>
+  </div>
   <a href="aboutme.html" onclick="closeMenu()">About</a>
   <a href="contactus.html" onclick="closeMenu()">Contact</a>
+  <a href="free_mental_health_test.html" onclick="closeMenu()">Free Mental Health Test</a>
   <a href="booking.html" onclick="closeMenu()">Book Session</a>
 </div>
 
@@ -510,6 +524,13 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   function closeMenu(){
     document.getElementById('mobileMenu').classList.remove('open');
   }
+
+  window.toggleMobileServices = function() {
+    const sub = document.getElementById('mobileServicesSub');
+    const svg = document.getElementById('mobileServicesToggle').querySelector('svg');
+    sub.classList.toggle('open');
+    svg.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : '';
+  };
 </script>
 </body>
 </html>
