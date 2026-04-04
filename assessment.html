@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/png" href="images/CY_Logo(white background).png"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Assessment — Caryn Psychology</title>
+<meta name="theme-color" content="#9FCFCE"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Psychological Assessment | ADHD, Autism & Learning Differences | Caryn Psychology</title>
+  <meta name="description" content="Comprehensive psychological assessments for ADHD, autism, and learning differences in children, teens and adults. In-person sessions in Malaysia with Caryn Yeoh."/>
+  <meta name="keywords" content="psychological assessment Malaysia, ADHD assessment Malaysia, autism assessment Malaysia, learning difficulties assessment, child psychologist Malaysia"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Caryn Yeoh"/>
+  <link rel="canonical" href="https://carynpsychology.com/assessment.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://carynpsychology.com/assessment.html"/>
+  <meta property="og:title" content="Psychological Assessment | Caryn Psychology"/>
+  <meta property="og:description" content="Structured psychological assessments for ADHD, autism, and learning differences. For children, teens, and adults in Malaysia."/>
+  <meta property="og:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
+  <meta property="og:site_name" content="Caryn Psychology"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Psychological Assessment | Caryn Psychology"/>
+  <meta name="twitter:description" content="Structured psychological assessments for ADHD, autism, and learning differences. For children, teens, and adults in Malaysia."/>
+  <meta name="twitter:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&family=Bentham&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -106,6 +122,10 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw
 .who-for-content{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0;}
 .who-for-cards.expanded .who-for-content{max-height:600px;opacity:1;}
 .who-for-cards.expanded .who-for-card{box-shadow:0 12px 40px rgba(0,0,0,.1);transform:translateY(-4px);}
+@media(max-width:680px){
+  .who-for-content{max-height:none;opacity:1;overflow:visible;}
+  .who-for-cards.expanded .who-for-card{box-shadow:0 2px 12px rgba(0,0,0,.05);transform:none;}
+}
 
 /* ── PROCESS ── */
 #process{background:#F5F1E6;padding:90px 0 100px;}
@@ -215,7 +235,23 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   .quote-floral{width:80px;}
   h2.section-title{font-size:clamp(1.6rem,5vw,2.2rem);}
 }
+
+@keyframes ctaRotateCW{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes ctaRotateCCW{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.cta-banner-inner:hover::before{animation:ctaRotateCW 14s linear infinite;}
+.cta-banner-inner:hover::after{animation:ctaRotateCCW 18s linear infinite;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Psychological Assessment",
+  "provider": {"@type": "MedicalBusiness", "name": "Caryn Psychology", "url": "https://carynpsychology.com"},
+  "description": "Comprehensive psychological assessments for ADHD, autism, and learning differences in children, teens, and adults.",
+  "areaServed": "Malaysia",
+  "url": "https://carynpsychology.com/assessment.html"
+}
+</script>
 </head>
 <body>
 
@@ -284,7 +320,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     </div>
     <div class="who-for-cards">
       <div class="who-for-card">
-        <div class="who-for-icon"><img src="images/Icons/Child icon.svg" alt=""/></div>
+        <div class="who-for-icon"><img src="images/Icons/Child icon.svg" alt="Children and teens"/></div>
         <h3>Children &amp; Teens</h3>
         <div class="who-for-content">
           <p>Most assessments are conducted for children and adolescents when there are concerns about development or school functioning.</p>
@@ -305,7 +341,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         </div>
       </div>
       <div class="who-for-card">
-        <div class="who-for-icon"><img src="images/Icons/Smile face icon.svg" alt=""/></div>
+        <div class="who-for-icon"><img src="images/Icons/Smile face icon.svg" alt="Adults"/></div>
         <h3>Adults</h3>
         <div class="who-for-content">
           <p>For adults, assessments may be helpful in understanding:</p>
@@ -402,7 +438,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h2>Our fees</h2>
         <div class="fees-floral-wrap">
           <div class="fees-floral-blob"></div>
-          <img src="images/Assessment/Assessment - Flower.svg" alt="" class="fees-floral-img"/>
+          <img src="images/Assessment/Assessment - Flower.svg" alt="" role="presentation" class="fees-floral-img"/>
         </div>
       </div>
       <div class="fees-card">
@@ -477,15 +513,15 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h5>Contact Info</h5>
         <div class="footer-contact-items">
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt="Location"/></div>
             <span>Cheras</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt="WhatsApp"/></div>
             <span>+60 10 377 2056</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt="Email"/></div>
             <a href="mailto:therapyandtraining@carynpsychology.com" style="color:inherit;text-decoration:none;">therapyandtraining@carynpsychology.com</a>
           </div>
         </div>

@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/png" href="images/CY_Logo(white background).png"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Caryn Psychology</title>
+<meta name="theme-color" content="#9FCFCE"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Caryn Psychology | Clinical Psychologist in Malaysia</title>
+  <meta name="description" content="Caryn Psychology offers individual therapy, psychological assessment, and mental health support in Malaysia. Book an initial consultation with clinical psychologist Caryn Yeoh."/>
+  <meta name="keywords" content="clinical psychologist Malaysia, therapy Malaysia, mental health support, anxiety therapy, individual therapy, psychological assessment Malaysia"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Caryn Yeoh"/>
+  <link rel="canonical" href="https://carynpsychology.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://carynpsychology.com/"/>
+  <meta property="og:title" content="Caryn Psychology | Clinical Psychologist in Malaysia"/>
+  <meta property="og:description" content="Therapy, assessment, and mental health support with Caryn Yeoh, clinical psychologist. Evidence-based care tailored to your needs."/>
+  <meta property="og:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
+  <meta property="og:site_name" content="Caryn Psychology"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Caryn Psychology | Clinical Psychologist in Malaysia"/>
+  <meta name="twitter:description" content="Therapy, assessment, and mental health support with Caryn Yeoh, clinical psychologist. Evidence-based care tailored to your needs."/>
+  <meta name="twitter:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&family=Bentham&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -460,8 +476,58 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   .expect-flow .expect-card{grid-column:1!important;grid-row:auto!important;}
   .expect-connectors{display:none;}
 }
+/* ── MOBILE EXPECT FLOWS ── */
+.expect-mobile{display:none;}
+@media(max-width:680px){
+  .expect-flow-wrapper{display:none;}
+  .expect-mobile{display:block;}
+  .expect-mobile-flows{display:flex;flex-direction:column;gap:2rem;}
+  .expect-mobile-flow{display:flex;flex-direction:column;}
+  .expect-card-mob{border-radius:20px;padding:1.2rem 1.4rem;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+  .expect-card-mob[data-ec="initial"]{background:#FFFFFF;border:1.5px solid #F6FBFB;}
+  .expect-card-mob[data-ec="therapy"],.expect-card-mob[data-ec="assessment"]{background:#F5F3EF;border:1.5px solid rgba(159,207,206,.1);}
+  .expect-card-mob[data-ec="ongoing"],.expect-card-mob[data-ec="understanding"]{background:#EAF0E8;border:1.5px solid rgba(159,207,206,.1);}
+  .expect-top-mob{display:flex;align-items:flex-start;}
+  .expect-top-mob h3,.expect-top-clickable h3{font-family:'Cormorant Garamond',serif;font-size:1.225rem;font-weight:700;color:var(--text);line-height:1.3;margin:0;flex:1;}
+  .expect-top-clickable{display:flex;align-items:flex-start;}
+  .expect-brief-mob{font-size:.85rem;color:var(--mid);line-height:1.6;margin-top:.4rem;}
+  .expect-detail-mob{padding-top:.75rem;}
+  .expect-detail-mob ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+  .expect-detail-mob li{font-size:.82rem;color:var(--mid);display:flex;align-items:flex-start;gap:.5rem;line-height:1.5;}
+  .expect-detail-mob li::before{content:'·';color:var(--sage);font-size:1.2rem;line-height:1;flex-shrink:0;}
+  .mob-flow-connector{display:flex;justify-content:center;padding:.5rem 0;opacity:.35;}
+  .mob-flow-divider{border:none;border-top:1px solid rgba(99,59,46,.12);margin:1.5rem 0;}
+}
+
+@keyframes ctaRotateCW{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+@keyframes ctaRotateCCW{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.cta-banner-inner:hover::before{animation:ctaRotateCW 14s linear infinite;}
+.cta-banner-inner:hover::after{animation:ctaRotateCCW 18s linear infinite;}
 </style>
 <script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Caryn Psychology",
+  "description": "Individual therapy, psychological assessment, and mental health support in Malaysia.",
+  "url": "https://carynpsychology.com",
+  "telephone": "+60103772056",
+  "email": "therapyandtraining@carynpsychology.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MY"
+  },
+  "sameAs": ["https://www.instagram.com/caryn.psychology/"],
+  "founder": {
+    "@type": "Person",
+    "name": "Caryn Yeoh",
+    "jobTitle": "Clinical Psychologist"
+  },
+  "medicalSpecialty": "Psychology",
+  "priceRange": "RM300–RM2000"
+}
 </script>
 </head>
 <body>
@@ -543,7 +609,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 
     <!-- Card 1: Holding it together -->
     <div class="area-card" id="area-1">
-      <div class="area-icon"><img src="images/Icons/Meditation icon.svg" alt=""/></div>
+      <div class="area-icon"><img src="images/Icons/Meditation icon.svg" alt="Emotional wellbeing"/></div>
       <h3>When holding it together feels exhausting</h3>
       <ul class="area-bullets">
         <li>Anxiety, overthinking, burnout, or feeling disconnected from what matters</li>
@@ -553,7 +619,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 
     <!-- Card 2: Understanding yourself -->
     <div class="area-card" id="area-2">
-      <div class="area-icon"><img src="images/Icons/Heart icon.svg" alt=""/></div>
+      <div class="area-icon"><img src="images/Icons/Heart icon.svg" alt="Relationships"/></div>
       <h3>Understanding yourself and your relationships</h3>
       <ul class="area-bullets">
         <li>Relationship stress, communication struggles, or repeating patterns</li>
@@ -563,7 +629,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 
     <!-- Card 3: Navigating neurodiversity -->
     <div class="area-card" id="area-3">
-      <div class="area-icon"><img src="images/Icons/Head with gear icon.svg" alt=""/></div>
+      <div class="area-icon"><img src="images/Icons/Head with gear icon.svg" alt="Cognitive and neurodevelopmental"/></div>
       <h3>Navigating neurodiversity</h3>
       <ul class="area-bullets">
         <li>Understanding your needs and finding strategies</li>
@@ -580,7 +646,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <div class="container">
   <div class="quote-banner-inner">
     <div class="quote-floral">
-      <img src="images/Home page/Home page - flower.svg" alt="">
+      <img src="images/Home page/Home page - flower.svg" alt="" role="presentation">
     </div>
     <div class="quote-banner-text">
       <blockquote>Things can feel very different on the inside,<br>even when everything looks okay.</blockquote>
@@ -687,6 +753,146 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       </div><!-- end expect-flow -->
       <svg class="expect-connectors" xmlns="http://www.w3.org/2000/svg"></svg>
     </div><!-- end expect-flow-wrapper -->
+
+    <!-- MOBILE FLOWS -->
+    <div class="expect-mobile">
+      <div class="expect-mobile-flows">
+
+        <!-- FLOW 1: Therapy path -->
+        <div class="expect-mobile-flow">
+
+          <!-- Initial Consultation (no chevron) -->
+          <div class="expect-card-mob" data-ec="initial">
+            <div class="expect-top-mob">
+              <h3>Initial Consultation</h3>
+            </div>
+            <p class="expect-brief-mob">A space to share what's been going on and begin making sense of it.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>60–90 minute session</li>
+                <li>Space to share what has been going on</li>
+                <li>Explore your experiences and background</li>
+                <li>Begin to notice patterns or difficulties</li>
+                <li>Consider next steps together</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Connector -->
+          <div class="mob-flow-connector">
+            <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="0" x2="10" y2="20" stroke="#633B2E" stroke-width="1.5"/><polyline points="4,14 10,22 16,14" fill="none" stroke="#633B2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Therapy (chevron) -->
+          <div class="expect-card-mob" data-ec="therapy">
+            <div class="expect-top-mob">
+              <h3>Therapy (Most common)</h3>
+            </div>
+            <p class="expect-brief-mob">Working through thoughts, emotions, and experiences with support.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>Understand thoughts, emotions, and patterns</li>
+                <li>Support for anxiety, low mood, burnout, OCD, phobias</li>
+                <li>Develop ways to cope and respond differently</li>
+                <li>A space to talk openly and reflect</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Connector -->
+          <div class="mob-flow-connector">
+            <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="0" x2="10" y2="20" stroke="#633B2E" stroke-width="1.5"/><polyline points="4,14 10,22 16,14" fill="none" stroke="#633B2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Ongoing Therapy (chevron) -->
+          <div class="expect-card-mob" data-ec="ongoing">
+            <div class="expect-top-mob">
+              <h3>Ongoing Therapy</h3>
+            </div>
+            <p class="expect-brief-mob">Steady, ongoing work that adapts as your needs evolve.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>Sessions at a pace that suits you</li>
+                <li>Work that adapts as your needs change</li>
+                <li>Deepen understanding over time</li>
+                <li>Build steady, lasting change</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- end flow 1 -->
+        <hr class="mob-flow-divider"/>
+
+        <!-- FLOW 2: Assessment path -->
+        <div class="expect-mobile-flow">
+
+          <!-- Initial Consultation (duplicate, no chevron) -->
+          <div class="expect-card-mob" data-ec="initial">
+            <div class="expect-top-mob">
+              <h3>Initial Consultation</h3>
+            </div>
+            <p class="expect-brief-mob">A space to share what's been going on and begin making sense of it.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>60–90 minute session</li>
+                <li>Space to share what has been going on</li>
+                <li>Explore your experiences and background</li>
+                <li>Begin to notice patterns or difficulties</li>
+                <li>Consider next steps together</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Connector -->
+          <div class="mob-flow-connector">
+            <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="0" x2="10" y2="20" stroke="#633B2E" stroke-width="1.5"/><polyline points="4,14 10,22 16,14" fill="none" stroke="#633B2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Assessment (chevron) -->
+          <div class="expect-card-mob" data-ec="assessment">
+            <div class="expect-top-mob">
+              <h3>Assessment (When needed)</h3>
+            </div>
+            <p class="expect-brief-mob">A structured process to better understand specific concerns.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>For ADHD, autism, learning differences</li>
+                <li>Often for children and adolescents</li>
+                <li>Uses structured tools and observations</li>
+                <li>Usually 2–5 sessions, depending on individual needs</li>
+                <li>In-depth understanding of specific concerns</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Connector -->
+          <div class="mob-flow-connector">
+            <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="0" x2="10" y2="20" stroke="#633B2E" stroke-width="1.5"/><polyline points="4,14 10,22 16,14" fill="none" stroke="#633B2E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Understanding the Findings (chevron) -->
+          <div class="expect-card-mob" data-ec="understanding">
+            <div class="expect-top-mob">
+              <h3>Understanding the Findings Together</h3>
+            </div>
+            <p class="expect-brief-mob">A guided session to help you understand and move forward with clarity.</p>
+            <div class="expect-detail-mob">
+              <ul>
+                <li>Guided walkthrough of the findings</li>
+                <li>Clear understanding of strengths and challenges</li>
+                <li>Diagnosis, where appropriate</li>
+                <li>Tailored recommendations for home, school, and daily life</li>
+                <li>Guidance for caregivers and key supports</li>
+                <li>3–5 page summary for school or formal use</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- end flow 2 -->
+
+      </div><!-- end mobile-flows -->
+    </div><!-- end expect-mobile -->
+
   </div>
 </section>
 
@@ -817,15 +1023,15 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <h5>Contact Info</h5>
         <div class="footer-contact-items">
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt="Location"/></div>
             <span>Cheras</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt="WhatsApp"/></div>
             <span>+60 10 377 2056</span>
           </div>
           <div class="footer-contact-item">
-            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt=""/></div>
+            <div class="footer-contact-icon"><img src="images/Icons/Email icon.svg" alt="Email"/></div>
             <a href="mailto:therapyandtraining@carynpsychology.com" style="color:inherit;text-decoration:none;">therapyandtraining@carynpsychology.com</a>
           </div>
         </div>
