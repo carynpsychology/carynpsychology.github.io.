@@ -5,20 +5,21 @@
 <link rel="icon" type="image/png" href="images/CY_Logo(white background).png"/>
 <meta name="theme-color" content="#9FCFCE"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Caryn Psychology | Clinical Psychologist in Malaysia</title>
-  <meta name="description" content="Caryn Psychology offers individual therapy, psychological assessment, and mental health support in Malaysia. Book an initial consultation with clinical psychologist Caryn Yeoh."/>
-  <meta name="keywords" content="clinical psychologist Malaysia, therapy Malaysia, mental health support, anxiety therapy, individual therapy, psychological assessment Malaysia"/>
+<title>Caryn Yeoh Psychology | Clinical Psychologist in Malaysia</title>
+  <meta name="description" content="Caryn Yeoh Psychology offers individual therapy, psychological assessment, and mental health support in Malaysia. Book a session with clinical psychologist Caryn Yeoh."/>
+  <meta name="keywords" content="Caryn Yeoh Psychology, Caryn Yeoh psychologist, clinical psychologist Malaysia, therapy Malaysia, mental health support, anxiety therapy, individual therapy, psychological assessment Malaysia"/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="Caryn Yeoh"/>
   <link rel="canonical" href="https://carynpsychology.com/"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://carynpsychology.com/"/>
-  <meta property="og:title" content="Caryn Psychology | Clinical Psychologist in Malaysia"/>
+  <meta property="og:title" content="Caryn Yeoh Psychology | Clinical Psychologist in Malaysia"/>
   <meta property="og:description" content="Therapy, assessment, and mental health support with Caryn Yeoh, clinical psychologist. Evidence-based care tailored to your needs."/>
   <meta property="og:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
-  <meta property="og:site_name" content="Caryn Psychology"/>
+  <meta property="og:site_name" content="Caryn Yeoh Psychology"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Caryn Psychology | Clinical Psychologist in Malaysia"/>
+  <meta name="twitter:title" content="Caryn Yeoh Psychology | Clinical Psychologist in Malaysia"/>
   <meta name="twitter:description" content="Therapy, assessment, and mental health support with Caryn Yeoh, clinical psychologist. Evidence-based care tailored to your needs."/>
   <meta name="twitter:image" content="https://carynpsychology.com/images/CY_Logo(white background).png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Quicksand:wght@300;400;500;600&family=Bentham&display=swap" rel="stylesheet"/>
@@ -113,6 +114,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06);}
 .btn-primary{background:var(--primary);color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:1.115rem;font-weight:700;transition:background .25s,transform .2s;display:inline-flex;align-items:center;gap:.5rem;}
 .btn-primary:hover{background:#7db8b7;transform:translateY(-2px);}
 .btn-ghost{background:#FCF9EF;border:1.5px solid #9FCFCE;color:var(--text);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-size:1.115rem;font-weight:700;transition:background .25s,border-color .25s;display:inline-block;}
+.btn-hero-mobile{display:none;}
 .btn-ghost:hover{background:#EAF0E8;border-color:#68BAB8;}
 /* Hero visual — squircle image */
 .hero-visual{display:flex;align-items:center;justify-content:center;padding:2rem 0;}
@@ -410,6 +412,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 }
 @media(max-width:680px){
   .areas-header .section-sub{font-size:1.075rem;white-space:normal;}
+  .btn-hero-desktop{display:none;}
+  .btn-hero-mobile{display:inline-flex;}
   .nav-logo span,.nav-logo-text{display:none;}
   .nav-logo img{width:32px;height:32px;}
   .nav-links{display:none;}
@@ -510,7 +514,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  "name": "Caryn Psychology",
+  "name": "Caryn Yeoh Psychology",
   "description": "Individual therapy, psychological assessment, and mental health support in Malaysia.",
   "url": "https://carynpsychology.com",
   "telephone": "+60103772056",
@@ -535,7 +539,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
 <!-- NAV -->
 <nav id="navbar">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:100%;">
-    <a href="#home" class="nav-logo"><img src="images/CY_Logo(white background).png" alt="Caryn Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>Caryn Psychology</a>
+    <a href="#home" class="nav-logo"><img src="images/CY_Logo(white background).png" alt="Caryn Yeoh Psychology" width="36" height="36" style="width:36px;height:36px;object-fit:contain;"/>Caryn Yeoh Psychology</a>
     <ul class="nav-links">
       <li><a href="#home" class="nav-active">Home</a></li>
       <li class="nav-dropdown">
@@ -580,7 +584,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <p>Professional psychological support to help you understand your thoughts, emotions, and patterns — with practical ways to move forward.</p>
     <div class="btn-group">
       <a href="booking.html" class="btn-primary">Book a Session →</a>
-      <a href="#services" class="btn-ghost">View Services</a>
+      <a href="#services" class="btn-ghost btn-hero-desktop">View Services</a>
+      <a href="free_mental_health_test.html" class="btn-ghost btn-hero-mobile">Free Mental Health Test</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -1007,8 +1012,8 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <!-- Top: logo + CTA buttons -->
     <div class="footer-top">
       <a href="#home" class="footer-logo">
-        <img src="images/CY_Logo(white background).png" alt="Caryn Psychology"/>
-        <span>Caryn Psychology</span>
+        <img src="images/CY_Logo(white background).png" alt="Caryn Yeoh Psychology"/>
+        <span>Caryn Yeoh Psychology</span>
       </a>
       <div class="footer-ctas">
         <a href="https://wa.link/p8gahg" class="footer-btn-ghost">WhatsApp us<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -1059,7 +1064,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
   <!-- Bottom bar -->
   <div class="container">
     <div class="footer-bottom">
-      <span>© 2026 | Caryn Psychology</span>
+      <span>© 2026 | Caryn Yeoh Psychology</span>
       <div class="footer-social">
         <a href="https://www.instagram.com/caryn.psychology/" aria-label="Instagram" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
