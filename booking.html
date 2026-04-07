@@ -300,9 +300,9 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
     <div class="booking-step-panel" id="step-1">
       <h3 class="step-heading">What type of appointment are you booking?</h3>
       <div class="option-grid">
-        <button class="option-card" onclick="selectType('1st Therapy Session',this)">
+        <button class="option-card" onclick="selectType('1st Consultation Session',this)">
           <div class="option-icon">🌱</div>
-          <div class="option-title">1st Therapy Session <span style="font-weight:400;font-size:.85em;">(60 - 90 minutes)</span></div>
+          <div class="option-title">1st Consultation Session <span style="font-weight:400;font-size:.85em;">(60 - 90 minutes)</span></div>
           <div class="option-desc">Your first appointment — we'll get to know you and understand what brings you here.</div>
         </button>
         <button class="option-card" onclick="selectType('On-going Therapy Session',this)">
@@ -438,7 +438,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
         <div class="footer-contact-items">
           <div class="footer-contact-item">
             <div class="footer-contact-icon"><img src="images/Icons/Location icon.svg" alt="Location"/></div>
-            <span>Cheras</span>
+            <span>Cheras / Petaling Jaya</span>
           </div>
           <div class="footer-contact-item">
             <div class="footer-contact-icon"><img src="images/Icons/Whatsapp icon.svg" alt="WhatsApp"/></div>
@@ -457,6 +457,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
             <li><a href="therapy.html">Therapy</a></li>
             <li><a href="training-workshops.html">Assessment</a></li>
             <li><a href="training-workshops.html">Training &amp; Workshops</a></li>
+            <li><a href="free_mental_health_test.html">Free Mental Health Test</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -552,7 +553,7 @@ footer{background:#454545;color:rgba(255,255,255,.55);padding:0;}
       const onlineBtn = document.getElementById('mode-online');
       const inpersonBtn = document.getElementById('mode-inperson');
       const isAssessment = selectedType === 'Assessment';
-      const isTherapy = selectedType === '1st Therapy Session' || selectedType === 'On-going Therapy Session';
+      const isTherapy = selectedType === '1st Consultation Session' || selectedType === 'On-going Therapy Session';
       onlineBtn.classList.toggle('disabled', isAssessment);
       inpersonBtn.classList.toggle('disabled', isTherapy);
       const onlineMsg = onlineBtn.querySelector('.option-disabled-msg');
